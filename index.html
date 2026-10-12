@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
-  <!-- FontAwesome 6 (Oficial e Confiável para Ícones Sociais) -->
+  <!-- FontAwesome 6 Oficial -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- CDNs Oficiais GSAP & ScrollTrigger -->
@@ -86,7 +86,7 @@
       --accent-teal-soft: rgba(31, 181, 181, 0.15);
       --cta-coral: #E3734F;
       --cta-coral-hover: #F08562;
-      --cta-coral-glow: rgba(227, 115, 79, 0.35);
+      --cta-coral-glow: rgba(227, 115, 79, 0.4);
       --text-sand: #E1DFD6;
       --text-sand-muted: #B8B5AA;
       --text-white: #FFFFFF;
@@ -102,7 +102,7 @@
       --radius-md: 14px;
       --radius-lg: 20px;
       --radius-full: 9999px;
-      --transition: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition: 0.25s ease;
     }
 
     *, *::before, *::after {
@@ -146,7 +146,7 @@
       background: none;
     }
 
-    /* Otimização de Performance no Scroll (Hardware Acceleration) */
+    /* Otimização de Performance e Aceleração GPU */
     .section-standard {
       padding: 70px 5%;
       position: relative;
@@ -199,6 +199,23 @@
     .card-visible {
       opacity: 1 !important;
       visibility: visible !important;
+    }
+
+    /* Feedback Tátil para Mobile (Hardware Accelerated) */
+    .btn-hero-primary, .btn-hero-secondary, .btn-pill-cta, .card-btn, .btn-load-more-reviews, .social-btn, .floating-wa-btn {
+      will-change: transform;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    .btn-hero-primary:active,
+    .btn-hero-secondary:active,
+    .btn-pill-cta:active,
+    .card-btn:active,
+    .btn-load-more-reviews:active,
+    .social-btn:active,
+    .floating-wa-btn:active {
+      transform: scale(0.97) !important;
+      transition: transform 0.1s ease;
     }
 
     /* ==========================================================================
@@ -303,13 +320,13 @@
       padding: 0.5rem 1.15rem;
       border-radius: var(--radius-full);
       box-shadow: 0 4px 14px var(--cta-coral-glow);
-      transition: all var(--transition);
       white-space: nowrap;
     }
 
     .btn-pill-cta:hover {
       background: var(--cta-coral-hover);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px var(--cta-coral-glow);
       color: #fff;
     }
 
@@ -402,7 +419,7 @@
     }
 
     /* ==========================================================================
-       3. HERO SECTION COM SUPORTE A VÍDEO MOBILE LEVE (SURFMOBILE.MP4)
+       3. HERO SECTION COM VÍDEO NATIVO VERTICAL (SURFMOBILE2.MP4)
        ========================================================================== */
     .hero-section {
       position: relative;
@@ -416,7 +433,8 @@
       transform: translateZ(0);
     }
 
-    .hero-video-bg {
+    /* Vídeo nativo: 100% cobrindo a viewport sem distorções nem zoom artificial */
+    .hero-video {
       position: absolute;
       inset: 0;
       width: 100%;
@@ -540,6 +558,7 @@
       flex-wrap: wrap;
     }
 
+    /* Micro-interações nos Botões: elevação sutil e brilho */
     .btn-hero-primary {
       display: inline-flex;
       align-items: center;
@@ -551,13 +570,12 @@
       padding: 0.9rem 2rem;
       border-radius: var(--radius-full);
       box-shadow: 0 6px 24px var(--cta-coral-glow);
-      transition: all var(--transition);
     }
 
     .btn-hero-primary:hover {
       background: var(--cta-coral-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px var(--cta-coral-glow);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(227, 115, 79, 0.4);
       color: #fff;
     }
 
@@ -573,14 +591,16 @@
       border-radius: var(--radius-full);
       border: 1px solid var(--glass-border-light);
       backdrop-filter: blur(10px);
-      transition: all var(--transition);
     }
 
     .btn-hero-secondary:hover {
       border-color: var(--accent-teal);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(31, 181, 181, 0.25);
       color: var(--text-white);
     }
 
+    /* Indicador "Explore ↓" com Salto Suave de 6px */
     .hero-explore-indicator {
       position: absolute;
       bottom: 1.75rem;
@@ -590,22 +610,27 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.3rem;
+      gap: 0.35rem;
       color: var(--text-sand-muted);
       font-size: 0.75rem;
       font-weight: 600;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
+      transition: color var(--transition);
+    }
+
+    .hero-explore-indicator:hover {
+      color: var(--accent-teal);
     }
 
     .explore-bounce-icon {
-      animation: exploreBounce 2s infinite;
+      animation: exploreBounceContinuous 2s ease-in-out infinite;
+      display: inline-block;
     }
 
-    @keyframes exploreBounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-      40% { transform: translateY(6px); }
-      60% { transform: translateY(3px); }
+    @keyframes exploreBounceContinuous {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
     }
 
     /* ==========================================================================
@@ -658,12 +683,13 @@
       transition: all var(--transition);
       display: flex;
       flex-direction: column;
+      will-change: transform, opacity;
     }
 
     .step-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent-teal);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+      transform: translateY(-6px);
+      border-color: rgba(31, 181, 181, 0.45);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4);
     }
 
     .step-number {
@@ -735,6 +761,7 @@
       gap: 24px;
     }
 
+    /* Efeito Hover nos Cards: elevação, sombra, realce de borda e zoom interno */
     .experience-card {
       background: var(--bg-navy-card);
       border: 1px solid var(--glass-border);
@@ -744,13 +771,18 @@
       flex-direction: column;
       transition: all var(--transition);
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-      will-change: transform;
+      will-change: transform, opacity;
     }
 
     .experience-card:hover {
       transform: translateY(-6px);
-      border-color: var(--accent-teal);
+      border-color: rgba(31, 181, 181, 0.45);
       box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+    }
+
+    .experience-card:active {
+      transform: scale(0.985);
+      opacity: 0.96;
     }
 
     .card-img-wrap {
@@ -766,7 +798,8 @@
       height: 100%;
       aspect-ratio: 16 / 9;
       object-fit: cover;
-      transition: transform 0.4s ease;
+      transition: transform 0.35s ease;
+      will-change: transform;
     }
 
     .experience-card:hover .card-img {
@@ -824,13 +857,13 @@
       font-weight: 700;
       padding: 0.75rem 1.15rem;
       border-radius: var(--radius-sm);
-      transition: all var(--transition);
       box-shadow: 0 4px 12px var(--cta-coral-glow);
     }
 
     .card-btn:hover {
       background: var(--cta-coral-hover);
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(227, 115, 79, 0.4);
       color: #fff;
     }
 
@@ -877,6 +910,11 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .sobre-visual-wrap:hover .sobre-main-img {
+      transform: scale(1.03);
     }
 
     .sobre-floating-badge {
@@ -1023,7 +1061,8 @@
       justify-content: space-between;
       transition: all var(--transition);
       opacity: 1;
-      animation: fadeInReview 0.4s ease forwards;
+      will-change: transform, opacity;
+      animation: fadeInReview 0.35s ease forwards;
     }
 
     @keyframes fadeInReview {
@@ -1032,8 +1071,9 @@
     }
 
     .review-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent-teal);
+      transform: translateY(-6px);
+      border-color: rgba(31, 181, 181, 0.45);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
     }
 
     .review-quote {
@@ -1093,7 +1133,6 @@
       font-weight: 700;
       padding: 0.85rem 2rem;
       border-radius: var(--radius-full);
-      transition: all var(--transition);
       cursor: pointer;
     }
 
@@ -1101,8 +1140,8 @@
       background: var(--cta-coral);
       border-color: var(--cta-coral);
       color: #fff;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px var(--cta-coral-glow);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(227, 115, 79, 0.4);
     }
 
     /* ==========================================================================
@@ -1126,6 +1165,7 @@
       height: 240px;
       border: 1px solid var(--glass-border-light);
       background: var(--bg-navy-deep);
+      will-change: transform;
     }
 
     .gallery-item.col-4 { grid-column: span 4; }
@@ -1144,6 +1184,7 @@
       height: 100%;
       object-fit: cover;
       transition: transform 0.4s ease;
+      will-change: transform;
     }
 
     .gallery-item:hover img {
@@ -1246,6 +1287,7 @@
       border-radius: var(--radius-sm);
       overflow: hidden;
       transition: border-color var(--transition);
+      will-change: transform, opacity;
     }
 
     .faq-item.active {
@@ -1321,6 +1363,7 @@
       border: 1px solid var(--glass-border);
       border-radius: var(--radius-lg);
       padding: 2rem;
+      will-change: transform, opacity;
     }
 
     .crucial-rule-banner {
@@ -1413,12 +1456,13 @@
       font-weight: 700;
       padding: 0.85rem 1.25rem;
       border-radius: var(--radius-sm);
-      transition: all var(--transition);
     }
 
     .btn-gps-route:hover {
       background: var(--accent-teal);
       color: var(--bg-navy-deep);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(31, 181, 181, 0.3);
     }
 
     .map-frame-container {
@@ -1435,7 +1479,7 @@
     }
 
     /* ==========================================================================
-       12. BOTÃO FLUTUANTE DE WHATSAPP (SEM COBRIR NAVEGAÇÃO MOBILE)
+       12. BOTÃO FLUTUANTE DE WHATSAPP (COM PULSE GLOW SEM TREMER A TELA)
        ========================================================================== */
     .floating-whatsapp-widget {
       position: fixed;
@@ -1472,26 +1516,29 @@
       align-items: center;
       justify-content: center;
       box-shadow: 0 6px 22px var(--cta-coral-glow);
-      transition: all var(--transition);
       cursor: pointer;
     }
 
     .floating-wa-btn:hover {
       background: var(--cta-coral-hover);
-      transform: scale(1.06);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(227, 115, 79, 0.5);
     }
 
+    /* Animação contínua e suave de pulso/respiração na borda (pulse glow) */
     .floating-pulse-ring {
       position: absolute;
-      inset: -5px;
+      inset: -6px;
       border-radius: 50%;
       border: 2px solid var(--cta-coral);
-      animation: pulseRing 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+      animation: waPulseGlow 2.4s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+      pointer-events: none;
     }
 
-    @keyframes pulseRing {
-      0% { transform: scale(0.9); opacity: 0.9; }
-      100% { transform: scale(1.35); opacity: 0; }
+    @keyframes waPulseGlow {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 0.35; }
+      100% { transform: scale(1.5); opacity: 0; }
     }
 
     /* ==========================================================================
@@ -1500,7 +1547,7 @@
     .site-footer {
       background-color: var(--bg-navy-deep);
       border-top: 1px solid rgba(31, 181, 181, 0.15);
-      padding: 4rem 5% 3.5rem 5%; /* Folga inferior para não colidir com o botão de WhatsApp */
+      padding: 4rem 5% 3.5rem 5%;
     }
 
     .footer-grid {
@@ -1545,7 +1592,6 @@
       line-height: 1.55;
     }
 
-    /* Estilização Refinada dos Botões Sociais */
     .footer-social-links {
       display: flex;
       align-items: center;
@@ -1563,7 +1609,6 @@
       align-items: center;
       justify-content: center;
       font-size: 1.1rem;
-      transition: all var(--transition);
       cursor: pointer;
     }
 
@@ -1575,7 +1620,8 @@
     .social-btn:hover {
       background: rgba(227, 115, 79, 0.15);
       border-color: var(--cta-coral);
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(227, 115, 79, 0.35);
     }
 
     .social-btn:hover i {
@@ -1768,12 +1814,13 @@
   </aside>
 
   <!-- ==========================================================================
-       HERO SECTION COM VÍDEO RESPONSIVO DINÂMICO (SURFMOBILE.MP4 VS HERO-VIDEO.MP4)
+       HERO SECTION COM VÍDEO NATIVO VERTICAL (SURFMOBILE2.MP4 VS HERO-VIDEO.MP4)
        ========================================================================== -->
   <section class="hero-section" id="inicio">
-    <video class="hero-video-bg" id="hero-video" autoplay muted loop playsinline preload="auto">
-      <!-- Fonte adaptativa: surfmobile.mp4 para mobile e hero-video.mp4 para desktop -->
-      <source src="./surf/surfmobile.mp4" type="video/mp4" media="(max-width: 768px)">
+    <video class="hero-video" id="hero-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
+      <!-- Ecrãs móveis (smartphones): Vídeo Nativo Vertical 9:16 sem barras pretas -->
+      <source src="./surf/surfmobile2.mp4" type="video/mp4" media="(max-width: 768px)">
+      <!-- Ecrãs desktop/telas amplas -->
       <source src="./surf/hero-video.mp4" type="video/mp4">
     </video>
 
@@ -1812,6 +1859,7 @@
       </div>
     </div>
 
+    <!-- Indicador "Explore ↓" com Animação de Salto Suave (6px) -->
     <a href="#metodo" class="hero-explore-indicator" aria-label="Rolar para a Metodologia">
       <span>Explore</span>
       <i data-lucide="chevron-down" class="explore-bounce-icon" style="width: 16px; height: 16px;"></i>
@@ -2399,8 +2447,8 @@
   </section>
 
   <!-- ==========================================================================
-       BOTÃO FLUTUANTE DE WHATSAPP (CALIBRADO)
-       ========================================================================== -->
+       BOTÃO FLUTUANTE DE WHATSAPP (COM PULSE GLOW SEM TREMER A TELA)
+       ========================================================================= -->
   <aside class="floating-whatsapp-widget" aria-label="Atendimento no WhatsApp">
     <div class="floating-wa-badge">Agende a sua Sessão</div>
     <a href="https://wa.me/5548991046867?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20aula%20de%20surf%20/%20consultar%20hor%C3%A1rios%20na%20Escola%20Evandro%20Santos." target="_blank" rel="noopener noreferrer" class="floating-wa-btn" aria-label="Falar no WhatsApp">
@@ -2427,19 +2475,15 @@
             Mais de 40 anos dedicados ao mar, ao aprendizado seguro do surf e à cultura de respeito ao oceano na Barra da Lagoa, Florianópolis - SC.
           </p>
           <div class="footer-social-links">
-            <!-- Ícone Oficial do Instagram via FontAwesome Conforme Solicitado -->
             <a href="https://www.instagram.com/escoladesurfflorianopolis/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram">
               <i class="fa-brands fa-instagram"></i>
             </a>
-            <!-- Instagram Hidrofoil -->
             <a href="https://www.instagram.com/hidrofoilfloripa/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Hidrofoil Floripa">
               <i class="fa-solid fa-water"></i>
             </a>
-            <!-- TripAdvisor -->
             <a href="https://www.tripadvisor.com.br/Attraction_Review-g1113399-d3459976-Reviews-Evandro_Santos_Surf_School-Barra_da_Lagoa_Florianopolis_State_of_Santa_Catarina.html" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="TripAdvisor">
               <i class="fa-solid fa-award"></i>
             </a>
-            <!-- WhatsApp -->
             <a href="https://wa.me/5548991046867" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp">
               <i class="fa-brands fa-whatsapp"></i>
             </a>
@@ -2503,23 +2547,23 @@
   </footer>
 
   <!-- ==========================================================================
-       SCRIPTS JAVASCRIPT: VÍDEO INTELIGENTE, REVIEWS EXPANSÍVEIS & INTERAÇÕES
+       SCRIPTS: VÍDEO VERTICAL RESPONSIVO, SCROLL REVEAL 60FPS & INTERAÇÕES
        ========================================================================== -->
   <script>
     // Inicialização dos Ícones Lucide
     lucide.createIcons();
 
     // ==========================================================================
-    // 1. CARREGAMENTO DINÂMICO E SEGURO DO VÍDEO HERO (DESKTOP VS MOBILE)
+    // 1. CARREGAMENTO DO VÍDEO VERTICAL (SURFMOBILE2.MP4 VS HERO-VIDEO.MP4)
     // ==========================================================================
     const heroVideo = document.getElementById('hero-video');
     function checkHeroVideoSrc() {
       if (!heroVideo) return;
       const isMobile = window.innerWidth <= 768;
-      const expectedSrc = isMobile ? 'surfmobile.mp4' : 'hero-video.mp4';
+      const expectedSrc = isMobile ? 'surfmobile2.mp4' : 'hero-video.mp4';
       const currentSrc = heroVideo.currentSrc || heroVideo.src || '';
       if (!currentSrc.includes(expectedSrc)) {
-        heroVideo.src = isMobile ? './surf/surfmobile.mp4' : './surf/hero-video.mp4';
+        heroVideo.src = isMobile ? './surf/surfmobile2.mp4' : './surf/hero-video.mp4';
         heroVideo.load();
         heroVideo.play().catch(() => {});
       }
@@ -2527,11 +2571,11 @@
     window.addEventListener('DOMContentLoaded', checkHeroVideoSrc);
     window.addEventListener('resize', () => {
       clearTimeout(window.videoResizeTimer);
-      window.videoResizeTimer = setTimeout(checkHeroVideoSrc, 300);
+      window.videoResizeTimer = setTimeout(checkHeroVideoSrc, 250);
     });
 
     // ==========================================================================
-    // 2. SCROLL PERFORMANCE & GSAP LEVE
+    // 2. SCROLL REVEAL SUAVE & LEVE (60FPS CONSTANTE - DESKTOP & MOBILE)
     // ==========================================================================
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       gsap.registerPlugin(ScrollTrigger);
@@ -2544,20 +2588,58 @@
         ease: 'power3.out'
       });
 
-      // matchMedia: Animações completas apenas no Desktop/Tablet (> 768px)
-      // No Mobile, mantemos a rolagem nativa 100% fluida a 60fps sem recalcular triggers
       ScrollTrigger.matchMedia({
+        // DESKTOP / TABLET (> 768px): Fade-up elegante e staggers escalonados
         "(min-width: 769px)": function() {
-          gsap.utils.toArray('.section-standard .container').forEach((section) => {
-            gsap.from(section, {
+          // Títulos e subtítulos
+          gsap.utils.toArray('.section-title, .section-subtitle').forEach((el) => {
+            gsap.from(el, {
               scrollTrigger: {
-                trigger: section,
+                trigger: el,
                 start: 'top 88%',
                 once: true
               },
-              y: 20,
-              duration: 0.6,
+              y: 30,
+              opacity: 0,
+              duration: 0.7,
               ease: 'power2.out'
+            });
+          });
+
+          // Cards com efeito stagger suave de 0.1s entre cada card
+          const cardGrids = document.querySelectorAll('.grid-aulas-4, .grid-servicos-3, .metodo-steps-grid');
+          cardGrids.forEach((grid) => {
+            const cards = grid.querySelectorAll('.experience-card, .step-card');
+            if (cards.length > 0) {
+              gsap.from(cards, {
+                scrollTrigger: {
+                  trigger: grid,
+                  start: 'top 85%',
+                  once: true
+                },
+                y: 35,
+                opacity: 0,
+                duration: 0.7,
+                stagger: 0.1,
+                ease: 'power2.out'
+              });
+            }
+          });
+        },
+
+        // MOBILE (<= 768px): Animações curtas de 0.5s para rolagem 100% fluida
+        "(max-width: 768px)": function() {
+          gsap.utils.toArray('.section-title').forEach((title) => {
+            gsap.from(title, {
+              scrollTrigger: {
+                trigger: title,
+                start: 'top 92%',
+                once: true
+              },
+              y: 18,
+              opacity: 0.3,
+              duration: 0.5,
+              ease: 'power1.out'
             });
           });
         }
@@ -2674,10 +2756,8 @@
       displayedCount = endIndex;
     }
 
-    // Renderiza inicialmente os 6 primeiros cards
     renderReviews(0, INITIAL_REVIEWS_COUNT);
 
-    // Carregar os 9 depoimentos restantes ao clicar
     if (loadMoreBtn) {
       loadMoreBtn.addEventListener('click', () => {
         if (displayedCount < allReviews.length) {
