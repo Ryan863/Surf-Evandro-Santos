@@ -24,6 +24,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
+  <!-- FontAwesome 6 (Oficial e Confiável para Ícones Sociais) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <!-- CDNs Oficiais GSAP & ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -72,7 +75,7 @@
 
   <style>
     /* ==========================================================================
-       1. DESIGN TOKENS & RESET LIMPO (BELIZE BLUE HOLE)
+       1. DESIGN TOKENS & RESET (BELIZE BLUE HOLE)
        ========================================================================== */
     :root {
       --bg-navy: #0A2B42;
@@ -143,11 +146,12 @@
       background: none;
     }
 
-    /* Espaçamento Padronizado (Sem vazios absurdos) */
+    /* Otimização de Performance no Scroll (Hardware Acceleration) */
     .section-standard {
       padding: 70px 5%;
       position: relative;
       width: 100%;
+      transform: translateZ(0);
     }
 
     .container {
@@ -192,14 +196,13 @@
       line-height: 1.6;
     }
 
-    /* Blindagem: Garante que cards e elementos nunca fiquem invisíveis */
-    .card-visible, .gsap-reveal, .experience-card, .step-card, .review-card, .gallery-item {
+    .card-visible {
       opacity: 1 !important;
       visibility: visible !important;
     }
 
     /* ==========================================================================
-       2. HEADER FLUTUANTE (FLOATING PILL BAR REFINADO & SEM SOBREPOSIÇÃO)
+       2. HEADER FLUTUANTE (FLOATING PILL BAR)
        ========================================================================== */
     .header-wrapper {
       position: fixed;
@@ -211,6 +214,7 @@
       justify-content: center;
       padding: 0 1rem;
       pointer-events: none;
+      transform: translateZ(0);
     }
 
     .pill-header {
@@ -241,7 +245,6 @@
       gap: 0.65rem;
     }
 
-    /* Correção do Logo: Sem recorte branco quadrado, máscara circular limpa */
     .brand-logo-img {
       width: 38px;
       height: 38px;
@@ -399,7 +402,7 @@
     }
 
     /* ==========================================================================
-       3. HERO SECTION (100VH ÚNICO - ESTILO "LIFE IS SWELL")
+       3. HERO SECTION COM SUPORTE A VÍDEO MOBILE LEVE (SURFMOBILE.MP4)
        ========================================================================== */
     .hero-section {
       position: relative;
@@ -410,6 +413,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      transform: translateZ(0);
     }
 
     .hero-video-bg {
@@ -420,6 +424,7 @@
       object-fit: cover;
       filter: saturate(1.1) brightness(0.85);
       z-index: 1;
+      transform: translateZ(0);
     }
 
     .hero-overlay {
@@ -503,8 +508,7 @@
       50% { opacity: 1; transform: scale(1.3); box-shadow: 0 0 14px var(--accent-teal); }
     }
 
-    /* Tipografia Display Monumental "Life is Swell":
-       Fonte condensada e alta (Anton), sem sombra escura amadora, sem text-stroke */
+    /* Tipografia Display Monumental "Life is Swell" */
     .hero-display-monumental {
       font-family: var(--font-display);
       font-size: clamp(4.5rem, 14vw, 10.5rem);
@@ -512,7 +516,6 @@
       line-height: 0.95;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      /* Gradiente sutil e sofisticado entre Reef Teal e Sand Bar */
       background: linear-gradient(180deg, #1FB5B5 0%, #30dede 45%, #E1DFD6 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -606,11 +609,11 @@
     }
 
     /* ==========================================================================
-       4. SEÇÃO METODOLOGIA & VÍDEO OFICIAL (#metodo) - ESPAÇAMENTO REFINADO
+       4. SEÇÃO METODOLOGIA & VÍDEO OFICIAL (#metodo)
        ========================================================================== */
     .section-metodo {
       background: linear-gradient(180deg, var(--bg-navy) 0%, var(--bg-navy-deep) 100%);
-      padding-top: 85px !important; /* Folga superior para nunca encostar no header */
+      padding-top: 85px !important;
     }
 
     .metodo-video-frame-wrap {
@@ -687,7 +690,7 @@
     }
 
     /* ==========================================================================
-       5. AULAS & EXPERIÊNCIAS (#aulas) - GRADE DE 4 CARDS OBRIGATÓRIA
+       5. AULAS & EXPERIÊNCIAS (#aulas)
        ========================================================================== */
     .section-aulas {
       background-color: var(--bg-navy);
@@ -726,7 +729,6 @@
       color: var(--accent-teal);
     }
 
-    /* Grade de 4 Cards Conforme Instrução */
     .grid-aulas-4 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
@@ -742,6 +744,7 @@
       flex-direction: column;
       transition: all var(--transition);
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      will-change: transform;
     }
 
     .experience-card:hover {
@@ -761,6 +764,7 @@
     .card-img {
       width: 100%;
       height: 100%;
+      aspect-ratio: 16 / 9;
       object-fit: cover;
       transition: transform 0.4s ease;
     }
@@ -831,7 +835,7 @@
     }
 
     /* ==========================================================================
-       6. SURFCAMP, HOSPEDAGEM & SHAPER HOUSE (#servicos) - GRADE DE 3 CARDS
+       6. SURFCAMP, HOSPEDAGEM & SHAPER HOUSE (#servicos)
        ========================================================================== */
     .section-servicos {
       background: linear-gradient(180deg, var(--bg-navy) 0%, var(--bg-navy-deep) 100%);
@@ -955,7 +959,7 @@
     }
 
     /* ==========================================================================
-       8. PROVA SOCIAL REAL (#depoimentos)
+       8. PROVA SOCIAL EM MASSA COM CARREGAR MAIS (#depoimentos)
        ========================================================================== */
     .section-depoimentos {
       background: linear-gradient(180deg, var(--bg-navy-deep) 0%, var(--bg-navy) 100%);
@@ -993,8 +997,20 @@
 
     .reviews-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
+    }
+
+    @media (max-width: 992px) {
+      .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 680px) {
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .review-card {
@@ -1006,6 +1022,13 @@
       flex-direction: column;
       justify-content: space-between;
       transition: all var(--transition);
+      opacity: 1;
+      animation: fadeInReview 0.4s ease forwards;
+    }
+
+    @keyframes fadeInReview {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .review-card:hover {
@@ -1051,6 +1074,35 @@
     .review-author-info {
       font-size: 0.75rem;
       color: var(--text-sand-muted);
+    }
+
+    .reviews-load-more-wrap {
+      margin-top: 2.75rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn-load-more-reviews {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(31, 181, 181, 0.12);
+      border: 1.5px solid var(--accent-teal);
+      color: var(--text-sand);
+      font-size: 0.92rem;
+      font-weight: 700;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-full);
+      transition: all var(--transition);
+      cursor: pointer;
+    }
+
+    .btn-load-more-reviews:hover {
+      background: var(--cta-coral);
+      border-color: var(--cta-coral);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--cta-coral-glow);
     }
 
     /* ==========================================================================
@@ -1383,16 +1435,17 @@
     }
 
     /* ==========================================================================
-       12. BOTÃO FLUTUANTE DE WHATSAPP
+       12. BOTÃO FLUTUANTE DE WHATSAPP (SEM COBRIR NAVEGAÇÃO MOBILE)
        ========================================================================== */
     .floating-whatsapp-widget {
       position: fixed;
       bottom: 1.75rem;
       right: 1.75rem;
-      z-index: 1500;
+      z-index: 990;
       display: flex;
       align-items: center;
       gap: 0.65rem;
+      transform: translateZ(0);
     }
 
     .floating-wa-badge {
@@ -1442,12 +1495,12 @@
     }
 
     /* ==========================================================================
-       13. RODAPÉ INSTITUCIONAL COMPLETO
+       13. RODAPÉ INSTITUCIONAL & ÍCONES SOCIAIS (FONTAWESOME)
        ========================================================================== */
     .site-footer {
       background-color: var(--bg-navy-deep);
       border-top: 1px solid rgba(31, 181, 181, 0.15);
-      padding: 4rem 5% 2rem 5%;
+      padding: 4rem 5% 3.5rem 5%; /* Folga inferior para não colidir com o botão de WhatsApp */
     }
 
     .footer-grid {
@@ -1492,28 +1545,41 @@
       line-height: 1.55;
     }
 
+    /* Estilização Refinada dos Botões Sociais */
     .footer-social-links {
       display: flex;
       align-items: center;
       gap: 0.65rem;
     }
 
-    .footer-social-icon {
-      width: 36px;
-      height: 36px;
+    .social-btn {
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       background: var(--bg-navy-card);
       border: 1px solid var(--glass-border-light);
       color: var(--text-sand);
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
+      font-size: 1.1rem;
       transition: all var(--transition);
+      cursor: pointer;
     }
 
-    .footer-social-icon:hover {
-      background: var(--accent-teal);
-      color: var(--bg-navy-deep);
+    .social-btn i {
+      color: var(--text-sand);
+      transition: color var(--transition);
+    }
+
+    .social-btn:hover {
+      background: rgba(227, 115, 79, 0.15);
+      border-color: var(--cta-coral);
+      transform: translateY(-2px);
+    }
+
+    .social-btn:hover i {
+      color: var(--cta-coral) !important;
     }
 
     .footer-col-heading {
@@ -1619,18 +1685,22 @@
       .map-frame-container {
         height: 340px;
       }
+      .floating-whatsapp-widget {
+        bottom: 1.25rem;
+        right: 1.25rem;
+      }
     }
   </style>
 </head>
 <body>
 
   <!-- ==========================================================================
-       HEADER FLUTUANTE (FLOATING PILL BAR REFINADO)
+       HEADER FLUTUANTE (FLOATING PILL BAR)
        ========================================================================== -->
   <header class="header-wrapper" id="header-bar">
     <nav class="pill-header" aria-label="Navegação Principal">
       <a href="#inicio" class="brand-logo-link">
-        <img src="./surf/logo.png" alt="Logo Escola de Surf Evandro Santos" class="brand-logo-img" onerror="this.src='./surf/logo.jpg'">
+        <img src="./surf/logo.png" alt="Logo Escola de Surf Evandro Santos" class="brand-logo-img" width="38" height="38" onerror="this.src='./surf/logo.jpg'">
         <div class="brand-logo-text">
           Evandro Santos
           <span>Surf Camp Floripa</span>
@@ -1698,10 +1768,12 @@
   </aside>
 
   <!-- ==========================================================================
-       HERO SECTION (100VH ÚNICO - ESTILO "LIFE IS SWELL")
+       HERO SECTION COM VÍDEO RESPONSIVO DINÂMICO (SURFMOBILE.MP4 VS HERO-VIDEO.MP4)
        ========================================================================== -->
   <section class="hero-section" id="inicio">
-    <video class="hero-video-bg" autoplay muted loop playsinline preload="auto">
+    <video class="hero-video-bg" id="hero-video" autoplay muted loop playsinline preload="auto">
+      <!-- Fonte adaptativa: surfmobile.mp4 para mobile e hero-video.mp4 para desktop -->
+      <source src="./surf/surfmobile.mp4" type="video/mp4" media="(max-width: 768px)">
       <source src="./surf/hero-video.mp4" type="video/mp4">
     </video>
 
@@ -1720,7 +1792,7 @@
         </div>
       </div>
 
-      <!-- Título Inspirado em "Life is Swell" (Condensado, Alto e Elegante em Reef Teal) -->
+      <!-- Título Inspirado em "Life is Swell" -->
       <h1 class="hero-display-monumental">SURF</h1>
 
       <!-- Frase Editorial de Suporte em Sand Bar (#E1DFD6) -->
@@ -1747,7 +1819,7 @@
   </section>
 
   <!-- ==========================================================================
-       METODOLOGIA & VÍDEO OFICIAL (#metodo) - PADDING-TOP ADEQUADO
+       METODOLOGIA & VÍDEO OFICIAL (#metodo)
        ========================================================================== -->
   <section class="section-standard section-metodo" id="metodo">
     <div class="container">
@@ -1813,7 +1885,7 @@
   </section>
 
   <!-- ==========================================================================
-       AULAS & EXPERIÊNCIAS (#aulas) - GRADE DE 4 CARDS OBRIGATÓRIA E VISÍVEL
+       AULAS & EXPERIÊNCIAS (#aulas) - GRADE DE 4 CARDS
        ========================================================================== -->
   <section class="section-standard section-aulas" id="aulas">
     <div class="container">
@@ -1839,12 +1911,11 @@
         </div>
       </div>
 
-      <!-- Grade Exata de 4 Cards com Proporção 16:9 -->
       <div class="grid-aulas-4">
         <!-- 1. Aulas em Grupo -->
         <div class="experience-card card-visible">
           <div class="card-img-wrap">
-            <img src="./surf/AABkmLeQLxco-TwQilQpGaPjZnKmV6W2g.png" alt="Aulas de Surf em Grupo na Barra da Lagoa" class="card-img" loading="lazy">
+            <img src="./surf/AABkmLeQLxco-TwQilQpGaPjZnKmV6W2g.png" alt="Aulas de Surf em Grupo na Barra da Lagoa" class="card-img" width="400" height="225" loading="lazy" decoding="async">
             <span class="card-level-badge">Iniciante ao Intermediário</span>
           </div>
           <div class="card-body">
@@ -1862,7 +1933,7 @@
         <!-- 2. Aula VIP Particular -->
         <div class="experience-card card-visible">
           <div class="card-img-wrap">
-            <img src="./surf/AABkmLeyhq1sr7Hmt0Ya1kMeGUIGG5H8q.png" alt="Aula VIP Particular de Surf em Florianópolis" class="card-img" loading="lazy">
+            <img src="./surf/AABkmLeyhq1sr7Hmt0Ya1kMeGUIGG5H8q.png" alt="Aula VIP Particular de Surf em Florianópolis" class="card-img" width="400" height="225" loading="lazy" decoding="async">
             <span class="card-level-badge">100% Exclusivo</span>
           </div>
           <div class="card-body">
@@ -1880,7 +1951,7 @@
         <!-- 3. Hidrofoil Floripa -->
         <div class="experience-card card-visible">
           <div class="card-img-wrap">
-            <img src="./surf/AABkmLfdHjka4FNXOuR4Jveeum4xFWO0L.png" alt="Hidrofoil Floripa - Voando sobre a água" class="card-img" loading="lazy">
+            <img src="./surf/AABkmLfdHjka4FNXOuR4Jveeum4xFWO0L.png" alt="Hidrofoil Floripa - Voando sobre a água" class="card-img" width="400" height="225" loading="lazy" decoding="async">
             <span class="card-level-badge">Sensação Única</span>
           </div>
           <div class="card-body">
@@ -1898,7 +1969,7 @@
         <!-- 4. Supwave -->
         <div class="experience-card card-visible">
           <div class="card-img-wrap">
-            <img src="./surf/AHIvA1nXkmlwSe8XwZQCAIRJyMFZtjVk0.png" alt="Supwave com Campeão Brasileiro Evandro Santos" class="card-img" loading="lazy">
+            <img src="./surf/AHIvA1nXkmlwSe8XwZQCAIRJyMFZtjVk0.png" alt="Supwave com Campeão Brasileiro Evandro Santos" class="card-img" width="400" height="225" loading="lazy" decoding="async">
             <span class="card-level-badge">Campeão Brasileiro</span>
           </div>
           <div class="card-body">
@@ -1917,7 +1988,7 @@
   </section>
 
   <!-- ==========================================================================
-       SURFCAMP, HOSPEDAGEM & SHAPER HOUSE (#servicos) - GRADE DE 3 CARDS
+       SURFCAMP, HOSPEDAGEM & SHAPER HOUSE (#servicos)
        ========================================================================== -->
   <section class="section-standard section-servicos" id="servicos">
     <div class="container">
@@ -1932,12 +2003,11 @@
         </p>
       </div>
 
-      <!-- Grade Exata de 3 Cards Conforme Instrução -->
       <div class="grid-servicos-3">
         <!-- 1. Studio SurfCamp -->
         <div class="experience-card card-visible">
           <div class="card-img-wrap">
-            <img src="./surf/AABkmLdqS8zuQf_DUxwr3_xeR5PCmETpo.png" alt="Studio SurfCamp Floripa com ar, wi-fi e tv" class="card-img" loading="lazy">
+            <img src="./surf/AABkmLdqS8zuQf_DUxwr3_xeR5PCmETpo.png" alt="Studio SurfCamp Floripa com ar, wi-fi e tv" class="card-img" width="400" height="225" loading="lazy" decoding="async">
             <span class="card-level-badge">Hospedagem Própria</span>
           </div>
           <div class="card-body">
@@ -1955,7 +2025,7 @@
         <!-- 2. Surf Trip Floripa -->
         <div class="experience-card card-visible">
           <div class="card-img-wrap">
-            <img src="./surf/AABkmLesn7aWKqXbakW4W5UOYBbH9l8Z0.png" alt="Surf Trip Floripa - Expedições nas bancadas da ilha" class="card-img" loading="lazy">
+            <img src="./surf/AABkmLesn7aWKqXbakW4W5UOYBbH9l8Z0.png" alt="Surf Trip Floripa - Expedições nas bancadas da ilha" class="card-img" width="400" height="225" loading="lazy" decoding="async">
             <span class="card-level-badge">Expedições</span>
           </div>
           <div class="card-body">
@@ -1973,7 +2043,7 @@
         <!-- 3. Aluguel & Shaper House -->
         <div class="experience-card card-visible">
           <div class="card-img-wrap">
-            <img src="./surf/AABkmLeS1epzAUo_pSn7nj23BpSVpwTCQ.png" alt="Aluguel de pranchas e Shaper House Evandro Santos" class="card-img" loading="lazy">
+            <img src="./surf/AABkmLeS1epzAUo_pSn7nj23BpSVpwTCQ.png" alt="Aluguel de pranchas e Shaper House Evandro Santos" class="card-img" width="400" height="225" loading="lazy" decoding="async">
             <span class="card-level-badge">Shaper House</span>
           </div>
           <div class="card-body">
@@ -1999,7 +2069,7 @@
       <div class="sobre-grid">
         <div class="sobre-visual-wrap card-visible">
           <div class="sobre-main-img-card">
-            <img src="./surf/AABkmLeyhq1sr7Hmt0Ya1kMeGUIGG5H8q.png" alt="Evandro Santos - Shaper e Lenda do Surf" class="sobre-main-img" loading="lazy">
+            <img src="./surf/AABkmLeyhq1sr7Hmt0Ya1kMeGUIGG5H8q.png" alt="Evandro Santos - Shaper e Lenda do Surf" class="sobre-main-img" width="500" height="625" loading="lazy" decoding="async">
           </div>
           <div class="sobre-floating-badge">
             <div class="sobre-badge-number">40+</div>
@@ -2050,7 +2120,7 @@
   </section>
 
   <!-- ==========================================================================
-       PROVA SOCIAL REAL (#depoimentos)
+       PROVA SOCIAL EM MASSA COM CARREGAR MAIS (#depoimentos)
        ========================================================================== -->
   <section class="section-standard section-depoimentos" id="depoimentos">
     <div class="container">
@@ -2078,62 +2148,14 @@
         </div>
       </div>
 
-      <div class="reviews-grid">
-        <div class="review-card card-visible">
-          <div class="stars-gold">★★★★★</div>
-          <p class="review-quote">
-            "Levei meu filho de 7 anos e a experiência foi indescritível! O Evandro e a equipe têm uma paciência, técnica e carinho absurdos. Na segunda onda meu filho já estava em pé vibrando! Segurança nível mil."
-          </p>
-          <div class="review-author-wrap">
-            <div class="review-avatar">A</div>
-            <div>
-              <div class="review-author-name">Alexandre Neves</div>
-              <div class="review-author-info">Pai de aluno • Google Review 5.0</div>
-            </div>
-          </div>
-        </div>
+      <!-- Container Dinâmico de Depoimentos (Renderizado via JS) -->
+      <div class="reviews-grid" id="reviews-container"></div>
 
-        <div class="review-card card-visible">
-          <div class="stars-gold">★★★★★</div>
-          <p class="review-quote">
-            "Nunca tinha subido numa prancha e morria de medo de onda grande. A metodologia de respiração e leitura do mar na areia fez toda a diferença. Fiquei em pé na primeira aula como eles prometem! Inesquecível!"
-          </p>
-          <div class="review-author-wrap">
-            <div class="review-avatar">S</div>
-            <div>
-              <div class="review-author-name">Sophia</div>
-              <div class="review-author-info">Iniciante • TripAdvisor Review 5.0</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card card-visible">
-          <div class="stars-gold">★★★★★</div>
-          <p class="review-quote">
-            "Melhor escola de surf do Brasil, sem exageros. O Evandro é uma lenda viva do esporte, shaper de mão cheia e ser humano nota 10. O SurfCamp é super aconchegante, limpo e perto de tudo na Barra."
-          </p>
-          <div class="review-author-wrap">
-            <div class="review-avatar">G</div>
-            <div>
-              <div class="review-author-name">George Justo</div>
-              <div class="review-author-info">Hóspede SurfCamp • Google Review 5.0</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card card-visible">
-          <div class="stars-gold">★★★★★</div>
-          <p class="review-quote">
-            "Fiz a aula com a equipe do Evandro durante minhas férias e foi o ponto alto da viagem. Equipamentos impecáveis, roupas de neoprene de primeira e atenção total dentro d'água. Recomendo de olhos fechados!"
-          </p>
-          <div class="review-author-wrap">
-            <div class="review-avatar">B</div>
-            <div>
-              <div class="review-author-name">Bárbara Kolling</div>
-              <div class="review-author-info">Turista em Floripa • Google Review 5.0</div>
-            </div>
-          </div>
-        </div>
+      <!-- Botão Expansível de Carregar Mais Depoimentos -->
+      <div class="reviews-load-more-wrap">
+        <button id="load-more-reviews-btn" class="btn-load-more-reviews" aria-label="Carregar Mais Depoimentos">
+          <span>Ver Mais Avaliações (+234 no Google) ↓</span>
+        </button>
       </div>
     </div>
   </section>
@@ -2156,35 +2178,35 @@
 
       <div class="gallery-grid">
         <div class="gallery-item col-8 card-visible" onclick="openLightbox('./surf/4f5658_ced2192410c044ce883199fc7a8dc824~mv2.png', 'Turma de surf na praia da Barra da Lagoa')">
-          <img src="./surf/4f5658_ced2192410c044ce883199fc7a8dc824~mv2.png" alt="Aulas de Surf na Barra da Lagoa" loading="lazy">
+          <img src="./surf/4f5658_ced2192410c044ce883199fc7a8dc824~mv2.png" alt="Aulas de Surf na Barra da Lagoa" width="700" height="350" loading="lazy" decoding="async">
           <div class="gallery-overlay">
             <span class="gallery-zoom-badge"><i data-lucide="maximize-2"></i> Ver em Alta Resolução</span>
           </div>
         </div>
 
         <div class="gallery-item col-4 card-visible" onclick="openLightbox('./surf/4f5658_ea1490e87ce94ca1b685dadef23b3a3d~mv2.png', 'Instrutores guiando alunos na água')">
-          <img src="./surf/4f5658_ea1490e87ce94ca1b685dadef23b3a3d~mv2.png" alt="Instrução no mar" loading="lazy">
+          <img src="./surf/4f5658_ea1490e87ce94ca1b685dadef23b3a3d~mv2.png" alt="Instrução no mar" width="350" height="350" loading="lazy" decoding="async">
           <div class="gallery-overlay">
             <span class="gallery-zoom-badge"><i data-lucide="maximize-2"></i> Ampliar Foto</span>
           </div>
         </div>
 
         <div class="gallery-item col-4 card-visible" onclick="openLightbox('./surf/4f5658_da9907aa9ee34ef7bb9b9b517e1beea3~mv2.png', 'Equipamentos e pranchas sob medida')">
-          <img src="./surf/4f5658_da9907aa9ee34ef7bb9b9b517e1beea3~mv2.png" alt="Pranchas de Surf Evandro Santos" loading="lazy">
+          <img src="./surf/4f5658_da9907aa9ee34ef7bb9b9b517e1beea3~mv2.png" alt="Pranchas de Surf Evandro Santos" width="350" height="350" loading="lazy" decoding="async">
           <div class="gallery-overlay">
             <span class="gallery-zoom-badge"><i data-lucide="maximize-2"></i> Ampliar Foto</span>
           </div>
         </div>
 
         <div class="gallery-item col-4 card-visible" onclick="openLightbox('./surf/4f5658_40ed200142424fd0b85fcdb47e9abec7~mv2.png', 'Aluno feliz surfando a onda')">
-          <img src="./surf/4f5658_40ed200142424fd0b85fcdb47e9abec7~mv2.png" alt="Aluno feliz surfando a onda" loading="lazy">
+          <img src="./surf/4f5658_40ed200142424fd0b85fcdb47e9abec7~mv2.png" alt="Aluno feliz surfando a onda" width="350" height="350" loading="lazy" decoding="async">
           <div class="gallery-overlay">
             <span class="gallery-zoom-badge"><i data-lucide="maximize-2"></i> Ampliar Foto</span>
           </div>
         </div>
 
         <div class="gallery-item col-4 card-visible" onclick="openLightbox('./surf/4f5658_4a8dd09f3d00419eb1f4d3b36a85b98a~mv2.png', 'Teoria de surf na areia')">
-          <img src="./surf/4f5658_4a8dd09f3d00419eb1f4d3b36a85b98a~mv2.png" alt="Teoria de surf na areia" loading="lazy">
+          <img src="./surf/4f5658_4a8dd09f3d00419eb1f4d3b36a85b98a~mv2.png" alt="Teoria de surf na areia" width="350" height="350" loading="lazy" decoding="async">
           <div class="gallery-overlay">
             <span class="gallery-zoom-badge"><i data-lucide="maximize-2"></i> Ampliar Foto</span>
           </div>
@@ -2377,7 +2399,7 @@
   </section>
 
   <!-- ==========================================================================
-       BOTÃO FLUTUANTE DE WHATSAPP
+       BOTÃO FLUTUANTE DE WHATSAPP (CALIBRADO)
        ========================================================================== -->
   <aside class="floating-whatsapp-widget" aria-label="Atendimento no WhatsApp">
     <div class="floating-wa-badge">Agende a sua Sessão</div>
@@ -2388,14 +2410,14 @@
   </aside>
 
   <!-- ==========================================================================
-       RODAPÉ INSTITUCIONAL COMPLETO
+       RODAPÉ INSTITUCIONAL COM ÍCONES FONTAWESOME CORRETOS
        ========================================================================== -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand-col">
           <div class="footer-logo-row">
-            <img src="./surf/logo.png" alt="Escola de Surf Evandro Santos" class="brand-logo-img" onerror="this.src='./surf/logo.jpg'">
+            <img src="./surf/logo.png" alt="Escola de Surf Evandro Santos" class="brand-logo-img" width="38" height="38" onerror="this.src='./surf/logo.jpg'">
             <div class="footer-brand-title">
               Evandro Santos
               <span>Surf Camp Floripa</span>
@@ -2405,14 +2427,21 @@
             Mais de 40 anos dedicados ao mar, ao aprendizado seguro do surf e à cultura de respeito ao oceano na Barra da Lagoa, Florianópolis - SC.
           </p>
           <div class="footer-social-links">
-            <a href="https://www.instagram.com/escoladesurfflorianopolis/" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Instagram Oficial">
-              <i data-lucide="instagram" style="width: 16px; height: 16px;"></i>
+            <!-- Ícone Oficial do Instagram via FontAwesome Conforme Solicitado -->
+            <a href="https://www.instagram.com/escoladesurfflorianopolis/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
             </a>
-            <a href="https://www.instagram.com/hidrofoilfloripa/" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Instagram Hidrofoil">
-              <i data-lucide="waves" style="width: 16px; height: 16px;"></i>
+            <!-- Instagram Hidrofoil -->
+            <a href="https://www.instagram.com/hidrofoilfloripa/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Hidrofoil Floripa">
+              <i class="fa-solid fa-water"></i>
             </a>
-            <a href="https://www.tripadvisor.com.br/Attraction_Review-g1113399-d3459976-Reviews-Evandro_Santos_Surf_School-Barra_da_Lagoa_Florianopolis_State_of_Santa_Catarina.html" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="TripAdvisor">
-              <i data-lucide="award" style="width: 16px; height: 16px;"></i>
+            <!-- TripAdvisor -->
+            <a href="https://www.tripadvisor.com.br/Attraction_Review-g1113399-d3459976-Reviews-Evandro_Santos_Surf_School-Barra_da_Lagoa_Florianopolis_State_of_Santa_Catarina.html" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="TripAdvisor">
+              <i class="fa-solid fa-award"></i>
+            </a>
+            <!-- WhatsApp -->
+            <a href="https://wa.me/5548991046867" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp">
+              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
@@ -2474,48 +2503,196 @@
   </footer>
 
   <!-- ==========================================================================
-       SCRIPTS JAVASCRIPT: GSAP SEGURO, ACCORDION & LIGHTBOX
+       SCRIPTS JAVASCRIPT: VÍDEO INTELIGENTE, REVIEWS EXPANSÍVEIS & INTERAÇÕES
        ========================================================================== -->
   <script>
     // Inicialização dos Ícones Lucide
     lucide.createIcons();
 
-    // GSAP ScrollTrigger Seguro (Sem esconder elementos caso o gatilho atrase)
-    if (typeof gsap !== 'undefined') {
+    // ==========================================================================
+    // 1. CARREGAMENTO DINÂMICO E SEGURO DO VÍDEO HERO (DESKTOP VS MOBILE)
+    // ==========================================================================
+    const heroVideo = document.getElementById('hero-video');
+    function checkHeroVideoSrc() {
+      if (!heroVideo) return;
+      const isMobile = window.innerWidth <= 768;
+      const expectedSrc = isMobile ? 'surfmobile.mp4' : 'hero-video.mp4';
+      const currentSrc = heroVideo.currentSrc || heroVideo.src || '';
+      if (!currentSrc.includes(expectedSrc)) {
+        heroVideo.src = isMobile ? './surf/surfmobile.mp4' : './surf/hero-video.mp4';
+        heroVideo.load();
+        heroVideo.play().catch(() => {});
+      }
+    }
+    window.addEventListener('DOMContentLoaded', checkHeroVideoSrc);
+    window.addEventListener('resize', () => {
+      clearTimeout(window.videoResizeTimer);
+      window.videoResizeTimer = setTimeout(checkHeroVideoSrc, 300);
+    });
+
+    // ==========================================================================
+    // 2. SCROLL PERFORMANCE & GSAP LEVE
+    // ==========================================================================
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       gsap.registerPlugin(ScrollTrigger);
 
-      // Animação de entrada suave no hero
+      // Entrada suave do Hero
       gsap.from('.hero-display-monumental', {
-        duration: 1,
-        y: 30,
+        duration: 0.9,
+        y: 25,
         opacity: 0.3,
         ease: 'power3.out'
       });
 
-      gsap.from('.hero-editorial-subtitle', {
-        duration: 1,
-        y: 20,
-        opacity: 0.3,
-        delay: 0.2,
-        ease: 'power3.out'
-      });
-
-      // Animações sutis nas seções usando once: true
-      gsap.utils.toArray('.section-standard .container').forEach((section) => {
-        gsap.from(section, {
-          scrollTrigger: {
-            trigger: section,
-            start: 'top 90%',
-            once: true
-          },
-          y: 20,
-          duration: 0.6,
-          ease: 'power2.out'
-        });
+      // matchMedia: Animações completas apenas no Desktop/Tablet (> 768px)
+      // No Mobile, mantemos a rolagem nativa 100% fluida a 60fps sem recalcular triggers
+      ScrollTrigger.matchMedia({
+        "(min-width: 769px)": function() {
+          gsap.utils.toArray('.section-standard .container').forEach((section) => {
+            gsap.from(section, {
+              scrollTrigger: {
+                trigger: section,
+                start: 'top 88%',
+                once: true
+              },
+              y: 20,
+              duration: 0.6,
+              ease: 'power2.out'
+            });
+          });
+        }
       });
     }
 
-    // Menu Mobile Drawer
+    // ==========================================================================
+    // 3. MURAL DE DEPOIMENTOS EXPANSÍVEL (ARRAY DE 15 AVALIAÇÕES REAIS)
+    // ==========================================================================
+    const allReviews = [
+      {
+        name: "Alexandre Neves",
+        info: "Pai de aluno • Google Review 5.0",
+        quote: "As aulas de Surf foram incríveis! Com o Evandro tu vais ficar em pé na prancha e andar sobre as águas! Ensina a leitura correta da onda no drop. Eu e meu filho de 7 anos aprendemos muito!"
+      },
+      {
+        name: "Bárbara Kolling",
+        info: "Turista em Floripa • Google Review 5.0",
+        quote: "A experiência de aprender a surfar foi incrível!! O Evandro é paciente e tem muita experiência, além disso deixa o aluno se sentir seguro dentro do mar."
+      },
+      {
+        name: "Sophia Scatola",
+        info: "Hóspede dos Studios • TripAdvisor 5.0",
+        quote: "Evandro, Pablo e Adriana são profissionais maravilhosos! Fiquei hospedada nos studios para um intensivão, tudo limpo e confortável. Consegui ficar em pé já na primeira onda!"
+      },
+      {
+        name: "George Justo",
+        info: "Local Guide • Google Review 5.0",
+        quote: "Passei 4 dias na Barra da Lagoa. Fui trocando de prancha a cada aula para ganhar agilidade e na 4ª aula já dropava ondas lateralmente."
+      },
+      {
+        name: "Brenda Boeschenstein",
+        info: "Local Guide • Google Review 5.0",
+        quote: "A escola é muito profissional e com técnicas selecionadas para realmente evoluir no surf. Faço aula há muitos anos e finalmente consegui entender e fluir na onda!"
+      },
+      {
+        name: "Grace Allen",
+        info: "Aluna Internacional • EUA",
+        quote: "My love for surfing began when I took my first lesson with Evandro in 2019. Took a ton of lessons throughout the year and even brought my family. He is the best!"
+      },
+      {
+        name: "Leonardo Vardanega",
+        info: "Google Review 5.0",
+        quote: "Levei minha filha e um amiguinho de 6 anos. A aula teórica fez toda a diferença para eles entenderem na prática com segurança total."
+      },
+      {
+        name: "Cassia",
+        info: "Google Review 5.0",
+        quote: "Meu marido que nunca havia surfado realizou o sonho aos 52 anos, nunca é tarde! Professor maravilhoso, método top."
+      },
+      {
+        name: "Vilson Marcelo",
+        info: "Google Review 5.0",
+        quote: "Melhor escola de surf de Floripa! Fui com meus dois filhos, de 8 e 12 anos, e eles amaram. Método que qualquer um fica em pé na primeira aula."
+      },
+      {
+        name: "Marcelo Petruccelli",
+        info: "Google Review 5.0",
+        quote: "Há 11 anos dei meus primeiros passos com ele. Hoje trouxe minha família inteira (filho, filha e esposa). E pode ter certeza: vc vai surfar na 1ª aula!"
+      },
+      {
+        name: "Ju Oda",
+        info: "Local Guide • Google Review 5.0",
+        quote: "Super recomendo! O Evandro é realmente apaixonado pelo surf e muito preparado teoricamente e em infraestrutura."
+      },
+      {
+        name: "Frederico Leite",
+        info: "Google Review 5.0",
+        quote: "Profissional excelente, tanto que se tornou um amigo. Minha experiência me fez curtir o esporte a ponto de praticar toda semana."
+      },
+      {
+        name: "Milene Mizuta",
+        info: "Google Review 5.0",
+        quote: "Conheço o Evandro há quase 20 anos, mais de 20 amigos meus do mundo todo já surfaram com ele. O melhor professor de surf que existe!"
+      },
+      {
+        name: "Carlos Torres",
+        info: "Local Guide • Google Review 5.0",
+        quote: "Evandro sabe tudo de surf e mais um pouco. Com seu método personalizado ensina as pessoas a desfrutar desse grande prazer."
+      },
+      {
+        name: "Bruna Schulte",
+        info: "Google Review 5.0",
+        quote: "Experiência indescritível, fascinante! Apenas façam, sem medo de ser feliz! Material teórico-prático de excelência."
+      }
+    ];
+
+    const reviewsContainer = document.getElementById('reviews-container');
+    const loadMoreBtn = document.getElementById('load-more-reviews-btn');
+    let displayedCount = 0;
+    const INITIAL_REVIEWS_COUNT = 6;
+
+    function renderReviews(startIndex, endIndex) {
+      if (!reviewsContainer) return;
+      const slice = allReviews.slice(startIndex, endIndex);
+      slice.forEach((r) => {
+        const card = document.createElement('div');
+        card.className = 'review-card card-visible';
+        card.innerHTML = `
+          <div>
+            <div class="stars-gold">★★★★★</div>
+            <p class="review-quote">"${r.quote}"</p>
+          </div>
+          <div class="review-author-wrap">
+            <div class="review-avatar">${r.name.charAt(0)}</div>
+            <div>
+              <div class="review-author-name">${r.name}</div>
+              <div class="review-author-info">${r.info}</div>
+            </div>
+          </div>
+        `;
+        reviewsContainer.appendChild(card);
+      });
+      displayedCount = endIndex;
+    }
+
+    // Renderiza inicialmente os 6 primeiros cards
+    renderReviews(0, INITIAL_REVIEWS_COUNT);
+
+    // Carregar os 9 depoimentos restantes ao clicar
+    if (loadMoreBtn) {
+      loadMoreBtn.addEventListener('click', () => {
+        if (displayedCount < allReviews.length) {
+          renderReviews(displayedCount, allReviews.length);
+          loadMoreBtn.innerHTML = '<span>Todas as Avaliações Carregadas (234+ no Google) ✓</span>';
+          loadMoreBtn.style.opacity = '0.7';
+          loadMoreBtn.style.cursor = 'default';
+          loadMoreBtn.disabled = true;
+        }
+      });
+    }
+
+    // ==========================================================================
+    // 4. MENU MOBILE DRAWER
+    // ==========================================================================
     const openDrawerBtn = document.getElementById('open-drawer-btn');
     const closeDrawerBtn = document.getElementById('close-drawer-btn');
     const mobileDrawer = document.getElementById('mobile-drawer');
@@ -2537,7 +2714,9 @@
     if (drawerOverlay) drawerOverlay.addEventListener('click', closeDrawer);
     mobileLinks.forEach(link => link.addEventListener('click', closeDrawer));
 
-    // FAQ Accordion Interativo
+    // ==========================================================================
+    // 5. FAQ ACCORDION INTERATIVO
+    // ==========================================================================
     const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach((item) => {
       const btn = item.querySelector('.faq-question-btn');
@@ -2555,7 +2734,9 @@
       });
     });
 
-    // Lightbox Modal
+    // ==========================================================================
+    // 6. LIGHTBOX MODAL PARA A GALERIA
+    // ==========================================================================
     const lightboxModal = document.getElementById('lightbox-modal');
     const lightboxImg = document.getElementById('lightbox-target-img');
     const lightboxCloseBtn = document.getElementById('lightbox-close-btn');
