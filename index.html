@@ -1,0 +1,3016 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escola de Surf Evandro Santos & Surf Camp Floripa | Barra da Lagoa</title>
+  <meta name="description" content="Aprenda a surfar na Barra da Lagoa com o mestre shaper e Tri-campeão Brasileiro Evandro Santos. Aulas de surf para iniciantes e avançados, SurfCamp completo, Hidrofoil e SUP Wave. Atendimento exclusivo com hora marcada.">
+  <meta name="keywords" content="escola de surf florianopolis, surf barra da lagoa, evandro santos surf, surfcamp floripa, aulas de surf florianopolis, hidrofoil floripa, aluguel de pranchas barra da lagoa">
+  <meta name="author" content="Escola de Surf Evandro Santos">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://escoladesurfflorianopolis.com.br/">
+  <meta property="og:title" content="Escola de Surf Evandro Santos & Surf Camp Floripa">
+  <meta property="og:description" content="Aprenda com quem vive o mar há mais de 40 anos. Aulas personalizadas na Barra da Lagoa com garantia de ficar em pé na 1ª aula. Atendimento exclusivo com hora marcada.">
+  <meta property="og:image" content="./surf/4f5658_ced2192410c044ce883199fc7a8dc824~mv2.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./surf/logo.png">
+
+  <!-- Google Fonts: Syne (Display Monumental) & Plus Jakarta Sans (Interface & Corpo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <!-- CDNs Oficiais GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Schema.org LocalBusiness Estruturado para SEO Local -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsActivityLocation",
+    "name": "Escola de Surf Evandro Santos & Surf Camp Floripa",
+    "image": "./surf/logo.png",
+    "telephone": "+5548991046867",
+    "url": "https://escoladesurfflorianopolis.com.br/",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Santos Reis, 88",
+      "addressLocality": "Barra da Lagoa, Florianópolis",
+      "addressRegion": "SC",
+      "postalCode": "88061-365",
+      "addressCountry": "BR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -27.5746,
+      "longitude": -48.4285
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "06:00",
+        "closes": "18:00"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "234"
+    },
+    "priceRange": "$$"
+  }
+  </script>
+
+  <style>
+    /* ==========================================================================
+       1. DESIGN TOKENS & RESET (BELIZE BLUE HOLE PALETTE)
+       ========================================================================== */
+    :root {
+      /* Paleta Oficial */
+      --bg-navy: #0A2B42;
+      --bg-navy-deep: #051826;
+      --bg-navy-surface: #0E3652;
+      --accent-teal: #1FB5B5;
+      --accent-teal-soft: rgba(31, 181, 181, 0.15);
+      --accent-teal-glow: rgba(31, 181, 181, 0.4);
+      --cta-coral: #E3734F;
+      --cta-coral-hover: #F08562;
+      --cta-coral-glow: rgba(227, 115, 79, 0.35);
+      --text-sand: #E1DFD6;
+      --text-sand-muted: #B2B0A6;
+      --text-white: #FFFFFF;
+      --glass-bg: rgba(10, 43, 66, 0.55);
+      --glass-card: rgba(14, 54, 82, 0.65);
+      --glass-border: rgba(31, 181, 181, 0.22);
+      --glass-border-light: rgba(225, 223, 214, 0.12);
+
+      /* Tipografia */
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+      /* Raios e Transições */
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+      --radius-full: 9999px;
+      --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-navy);
+      color: var(--text-sand);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    body {
+      background-color: var(--bg-navy);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    img, video {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    /* Utilitários Visuais */
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-padding {
+      padding: 7rem 0;
+    }
+
+    .text-center { text-align: center; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-teal);
+      background: var(--accent-teal-soft);
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--glass-border);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.2vw, 3.4rem);
+      font-weight: 800;
+      color: var(--text-white);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-subtitle {
+      font-size: clamp(1rem, 1.3vw, 1.15rem);
+      color: var(--text-sand-muted);
+      max-width: 680px;
+      margin: 0 auto 3.5rem auto;
+      line-height: 1.7;
+    }
+
+    /* ==========================================================================
+       2. PRELOADER / INTRO CURTAIN
+       ========================================================================== */
+    #preloader {
+      position: fixed;
+      inset: 0;
+      background-color: var(--bg-navy-deep);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      pointer-events: none;
+    }
+
+    .preloader-logo-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .preloader-logo {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 20px var(--accent-teal-glow));
+    }
+
+    .preloader-brand {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--text-white);
+      text-transform: uppercase;
+    }
+
+    .preloader-bar-bg {
+      width: 180px;
+      height: 3px;
+      background: rgba(225, 223, 214, 0.15);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .preloader-bar-fill {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent-teal), var(--cta-coral));
+      border-radius: var(--radius-full);
+    }
+
+    /* ==========================================================================
+       3. FLOATING PILL BAR (HEADER SUPERIOR & MENU MOBILE)
+       ========================================================================== */
+    .header-wrapper {
+      position: fixed;
+      top: 1.25rem;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      padding: 0 1rem;
+      pointer-events: none;
+    }
+
+    .pill-header {
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-full);
+      padding: 0.55rem 0.85rem 0.55rem 1.25rem;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+      transition: all var(--transition-fast);
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    .pill-header:hover {
+      border-color: rgba(31, 181, 181, 0.45);
+      box-shadow: 0 16px 44px rgba(0, 0, 0, 0.45);
+    }
+
+    .brand-logo-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .brand-logo-img {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+    }
+
+    .brand-logo-text {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--text-white);
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-logo-text span {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--accent-teal);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .nav-menu-desktop {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: var(--text-sand);
+      position: relative;
+      padding: 0.35rem 0.2rem;
+      transition: color var(--transition-fast);
+    }
+
+    .nav-link:hover {
+      color: var(--text-white);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) scaleX(0);
+      width: 100%;
+      height: 2px;
+      background: var(--accent-teal);
+      border-radius: var(--radius-full);
+      transition: transform var(--transition-fast);
+    }
+
+    .nav-link:hover::after {
+      transform: translateX(-50%) scaleX(1);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .btn-pill-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--cta-coral);
+      color: var(--text-white);
+      font-size: 0.84rem;
+      font-weight: 700;
+      padding: 0.6rem 1.25rem;
+      border-radius: var(--radius-full);
+      box-shadow: 0 4px 16px var(--cta-coral-glow);
+      transition: all var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .btn-pill-cta:hover {
+      background: var(--cta-coral-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px var(--cta-coral-glow);
+      color: #fff;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-full);
+      background: rgba(31, 181, 181, 0.12);
+      border: 1px solid var(--glass-border);
+      color: var(--text-white);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .mobile-menu-btn:hover {
+      background: rgba(31, 181, 181, 0.25);
+    }
+
+    /* Mobile Drawer */
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: min(85vw, 360px);
+      background: var(--bg-navy-deep);
+      border-left: 1px solid var(--glass-border);
+      z-index: 2000;
+      transform: translateX(100%);
+      display: flex;
+      flex-direction: column;
+      padding: 2rem 1.75rem;
+      box-shadow: -10px 0 40px rgba(0,0,0,0.7);
+    }
+
+    .mobile-drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
+    }
+
+    .mobile-drawer-close {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(225, 223, 214, 0.08);
+      color: var(--text-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--glass-border-light);
+    }
+
+    .mobile-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .mobile-nav-link {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-sand);
+      display: block;
+      transition: color var(--transition-fast);
+    }
+
+    .mobile-nav-link:hover {
+      color: var(--accent-teal);
+    }
+
+    .mobile-drawer-footer {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 24, 38, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 1999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-fast);
+    }
+
+    .drawer-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ==========================================================================
+       4. HERO SECTION CINEMATOGRÁFICA (#inicio)
+       ========================================================================== */
+    .hero-section {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 700px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-video-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.12);
+      filter: saturate(1.15) brightness(0.85);
+      z-index: 1;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(10, 43, 66, 0.35) 0%, rgba(10, 43, 66, 0.75) 70%, var(--bg-navy) 100%);
+      z-index: 2;
+    }
+
+    .hero-overlay-gradient-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background: linear-gradient(to top, var(--bg-navy), transparent);
+      z-index: 3;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 4;
+      text-align: center;
+      width: 100%;
+      max-width: 1100px;
+      padding: 0 1.5rem;
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-badges-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-badge-authority {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-white);
+      background: rgba(10, 43, 66, 0.75);
+      border: 1px solid var(--accent-teal);
+      padding: 0.45rem 1rem;
+      border-radius: var(--radius-full);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-badge-authority .star-icon {
+      color: #FFD13B;
+    }
+
+    .hero-badge-appointment {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-teal);
+      background: rgba(31, 181, 181, 0.12);
+      border: 1px solid var(--accent-teal);
+      padding: 0.45rem 1rem;
+      border-radius: var(--radius-full);
+      backdrop-filter: blur(8px);
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-teal);
+      box-shadow: 0 0 10px var(--accent-teal);
+      animation: pulseAnim 2s infinite;
+    }
+
+    @keyframes pulseAnim {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 14px var(--accent-teal); }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+
+    /* Tipografia Monumental Red Bull Style */
+    .hero-title-container {
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-display-monumental {
+      font-family: var(--font-display);
+      font-size: clamp(4.2rem, 15vw, 12.5rem);
+      font-weight: 900;
+      color: var(--text-white);
+      line-height: 0.9;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+      transform: translateY(100%);
+    }
+
+    .hero-subtitle-container {
+      overflow: hidden;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-editorial-subtitle {
+      font-size: clamp(1.15rem, 2.3vw, 1.65rem);
+      font-weight: 400;
+      color: var(--text-sand);
+      max-width: 740px;
+      margin: 0 auto;
+      line-height: 1.5;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
+      transform: translateY(100%);
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .btn-hero-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--cta-coral);
+      color: var(--text-white);
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 1rem 2.2rem;
+      border-radius: var(--radius-full);
+      box-shadow: 0 8px 30px var(--cta-coral-glow);
+      transition: all var(--transition-fast);
+      letter-spacing: 0.01em;
+    }
+
+    .btn-hero-primary:hover {
+      background: var(--cta-coral-hover);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 12px 36px var(--cta-coral-glow);
+      color: #fff;
+    }
+
+    .btn-hero-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--glass-bg);
+      color: var(--text-sand);
+      font-size: 0.98rem;
+      font-weight: 600;
+      padding: 0.95rem 1.85rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--glass-border-light);
+      backdrop-filter: blur(12px);
+      transition: all var(--transition-fast);
+    }
+
+    .btn-hero-secondary:hover {
+      background: rgba(31, 181, 181, 0.15);
+      border-color: var(--accent-teal);
+      color: var(--text-white);
+    }
+
+    /* Indicador Explore */
+    .hero-explore-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-sand-muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0;
+      transition: color var(--transition-fast);
+    }
+
+    .hero-explore-indicator:hover {
+      color: var(--accent-teal);
+    }
+
+    .explore-bounce-icon {
+      animation: exploreBounce 2s infinite;
+    }
+
+    @keyframes exploreBounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(8px); }
+      60% { transform: translateY(4px); }
+    }
+
+    /* ==========================================================================
+       5. METODOLOGIA & VÍDEO OFICIAL (#metodo)
+       ========================================================================== */
+    .section-metodo {
+      background: linear-gradient(180deg, var(--bg-navy) 0%, var(--bg-navy-deep) 100%);
+      position: relative;
+    }
+
+    .metodo-video-frame-wrap {
+      position: relative;
+      max-width: 960px;
+      margin: 0 auto 5rem auto;
+      border-radius: var(--radius-xl);
+      padding: 6px;
+      background: linear-gradient(135deg, rgba(31, 181, 181, 0.4), rgba(10, 43, 66, 0.8), rgba(227, 115, 79, 0.3));
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(31, 181, 181, 0.15);
+    }
+
+    .metodo-video-inner {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 */
+      border-radius: calc(var(--radius-xl) - 4px);
+      overflow: hidden;
+      background: #000;
+    }
+
+    .metodo-video-inner iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .metodo-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.75rem;
+      margin-top: 2rem;
+    }
+
+    .step-card {
+      background: var(--glass-card);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 1.75rem;
+      backdrop-filter: blur(12px);
+      position: relative;
+      transition: all var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .step-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent-teal);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4), 0 0 25px rgba(31, 181, 181, 0.15);
+    }
+
+    .step-number {
+      font-family: var(--font-display);
+      font-size: 2.75rem;
+      font-weight: 900;
+      color: rgba(31, 181, 181, 0.25);
+      line-height: 1;
+      margin-bottom: 1rem;
+      transition: color var(--transition-fast);
+    }
+
+    .step-card:hover .step-number {
+      color: var(--accent-teal);
+    }
+
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 0.75rem;
+    }
+
+    .step-desc {
+      font-size: 0.92rem;
+      color: var(--text-sand-muted);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       6. AULAS & EXPERIÊNCIAS (#aulas)
+       ========================================================================== */
+    .section-aulas {
+      background-color: var(--bg-navy);
+      position: relative;
+    }
+
+    .appointment-alert-box {
+      background: rgba(31, 181, 181, 0.08);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.75rem;
+      max-width: 820px;
+      margin: 0 auto 3.5rem auto;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .appointment-alert-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--accent-teal-soft);
+      color: var(--accent-teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .appointment-alert-text {
+      font-size: 0.94rem;
+      color: var(--text-sand);
+    }
+
+    .appointment-alert-text strong {
+      color: var(--accent-teal);
+    }
+
+    .cards-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .experience-card {
+      background: var(--glass-card);
+      border: 1px solid var(--glass-border-light);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      backdrop-filter: blur(14px);
+      display: flex;
+      flex-direction: column;
+      transition: all var(--transition-smooth);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .experience-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent-teal);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 30px rgba(31, 181, 181, 0.15);
+    }
+
+    .card-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 240px;
+      overflow: hidden;
+    }
+
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+
+    .experience-card:hover .card-img {
+      transform: scale(1.08);
+    }
+
+    .card-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(10, 43, 66, 0.85);
+      border: 1px solid var(--accent-teal);
+      color: var(--accent-teal);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.3rem 0.8rem;
+      border-radius: var(--radius-full);
+      backdrop-filter: blur(8px);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .card-body {
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 0.75rem;
+    }
+
+    .card-desc {
+      font-size: 0.92rem;
+      color: var(--text-sand-muted);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .card-features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-sand);
+    }
+
+    .card-feature-item i {
+      color: var(--accent-teal);
+      flex-shrink: 0;
+    }
+
+    .card-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      background: var(--cta-coral);
+      color: var(--text-white);
+      font-size: 0.92rem;
+      font-weight: 700;
+      padding: 0.85rem 1.25rem;
+      border-radius: var(--radius-md);
+      transition: all var(--transition-fast);
+      box-shadow: 0 4px 14px var(--cta-coral-glow);
+    }
+
+    .card-btn:hover {
+      background: var(--cta-coral-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--cta-coral-glow);
+      color: #fff;
+    }
+
+    /* ==========================================================================
+       7. SERVIÇOS & HOSPEDAGEM (#servicos)
+       ========================================================================== */
+    .section-servicos {
+      background: linear-gradient(180deg, var(--bg-navy) 0%, var(--bg-navy-deep) 100%);
+      position: relative;
+    }
+
+    /* Bento Grid Layout para Serviços */
+    .services-bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1.75rem;
+    }
+
+    .bento-card-large {
+      grid-column: span 7;
+    }
+
+    .bento-card-small {
+      grid-column: span 5;
+    }
+
+    @media (max-width: 992px) {
+      .bento-card-large, .bento-card-small {
+        grid-column: span 12;
+      }
+    }
+
+    /* ==========================================================================
+       8. AUTORIDADE & HISTÓRIA (#sobre)
+       ========================================================================== */
+    .section-sobre {
+      background-color: var(--bg-navy-deep);
+      position: relative;
+    }
+
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .sobre-visual-wrap {
+      position: relative;
+    }
+
+    .sobre-main-img-card {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+      position: relative;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+    }
+
+    .sobre-main-img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+    }
+
+    .sobre-floating-badge {
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1.5rem;
+      background: var(--bg-navy);
+      border: 2px solid var(--accent-teal);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.75rem;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+      backdrop-filter: blur(12px);
+    }
+
+    .sobre-badge-number {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--cta-coral);
+      line-height: 1;
+    }
+
+    .sobre-badge-label {
+      font-size: 0.82rem;
+      color: var(--text-sand);
+      font-weight: 600;
+      margin-top: 0.25rem;
+    }
+
+    .sobre-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sobre-bio-text {
+      font-size: 1.05rem;
+      color: var(--text-sand);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .sobre-stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--glass-border-light);
+      border-bottom: 1px solid var(--glass-border-light);
+    }
+
+    .stat-item-number {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--accent-teal);
+      line-height: 1;
+    }
+
+    .stat-item-label {
+      font-size: 0.85rem;
+      color: var(--text-sand-muted);
+      margin-top: 0.4rem;
+    }
+
+    .team-highlight-box {
+      background: var(--glass-card);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .team-highlight-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .team-highlight-desc {
+      font-size: 0.88rem;
+      color: var(--text-sand-muted);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       9. PROVA SOCIAL REAL (#depoimentos)
+       ========================================================================== */
+    .section-depoimentos {
+      background: linear-gradient(180deg, var(--bg-navy-deep) 0%, var(--bg-navy) 100%);
+      position: relative;
+    }
+
+    .reviews-trust-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 3.5rem;
+      padding: 1.25rem 2rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-full);
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
+      backdrop-filter: blur(10px);
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-sand);
+    }
+
+    .trust-item .stars-gold {
+      color: #FFD13B;
+      letter-spacing: 2px;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .review-card {
+      background: var(--glass-card);
+      border: 1px solid var(--glass-border-light);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      backdrop-filter: blur(12px);
+      transition: all var(--transition-smooth);
+    }
+
+    .review-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent-teal);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    .review-stars {
+      color: #FFD13B;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .review-quote {
+      font-size: 0.96rem;
+      color: var(--text-sand);
+      line-height: 1.7;
+      margin-bottom: 1.75rem;
+      font-style: italic;
+    }
+
+    .review-author-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .review-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-teal), var(--bg-navy-deep));
+      color: var(--text-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border: 1px solid var(--accent-teal);
+    }
+
+    .review-author-name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-white);
+    }
+
+    .review-author-info {
+      font-size: 0.8rem;
+      color: var(--text-sand-muted);
+    }
+
+    /* ==========================================================================
+       10. GALERIA DE FOTOS DINÂMICA COM LIGHTBOX
+       ========================================================================== */
+    .section-galeria {
+      background-color: var(--bg-navy);
+      position: relative;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1.25rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      cursor: pointer;
+      height: 280px;
+      border: 1px solid var(--glass-border-light);
+      background: #051826;
+    }
+
+    .gallery-item.col-4 { grid-column: span 4; }
+    .gallery-item.col-6 { grid-column: span 6; }
+    .gallery-item.col-8 { grid-column: span 8; }
+    .gallery-item.col-12 { grid-column: span 12; }
+
+    @media (max-width: 768px) {
+      .gallery-item.col-4, .gallery-item.col-6, .gallery-item.col-8 {
+        grid-column: span 12;
+        height: 240px;
+      }
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10, 43, 66, 0.85) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity var(--transition-smooth);
+      display: flex;
+      align-items: flex-end;
+      padding: 1.5rem;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-zoom-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--accent-teal);
+      color: var(--bg-navy-deep);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.4rem 0.85rem;
+      border-radius: var(--radius-full);
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 24, 38, 0.95);
+      backdrop-filter: blur(12px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+    }
+
+    .lightbox-modal.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .lightbox-content-wrap {
+      position: relative;
+      max-width: 90vw;
+      max-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 85vh;
+      border-radius: var(--radius-md);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+      border: 1px solid var(--glass-border);
+      object-fit: contain;
+    }
+
+    .lightbox-close-btn {
+      position: absolute;
+      top: -3.5rem;
+      right: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      color: var(--text-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .lightbox-close-btn:hover {
+      background: var(--cta-coral);
+      border-color: var(--cta-coral);
+    }
+
+    /* ==========================================================================
+       11. FAQ INTERATIVO (#faq)
+       ========================================================================== */
+    .section-faq {
+      background: linear-gradient(180deg, var(--bg-navy) 0%, var(--bg-navy-deep) 100%);
+      position: relative;
+    }
+
+    .faq-accordion-list {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .faq-item {
+      background: var(--glass-card);
+      border: 1px solid var(--glass-border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      transition: border-color var(--transition-fast);
+    }
+
+    .faq-item.active {
+      border-color: var(--accent-teal);
+    }
+
+    .faq-question-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 1.5rem 1.75rem;
+      text-align: left;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-white);
+      cursor: pointer;
+      background: none;
+      transition: color var(--transition-fast);
+    }
+
+    .faq-question-btn:hover {
+      color: var(--accent-teal);
+    }
+
+    .faq-chevron {
+      color: var(--accent-teal);
+      transition: transform var(--transition-smooth);
+      flex-shrink: 0;
+    }
+
+    .faq-item.active .faq-chevron {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer-pane {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
+      padding: 0 1.75rem;
+    }
+
+    .faq-item.active .faq-answer-pane {
+      max-height: 350px;
+      padding: 0 1.75rem 1.5rem 1.75rem;
+    }
+
+    .faq-answer-text {
+      font-size: 0.96rem;
+      color: var(--text-sand-muted);
+      line-height: 1.7;
+      border-top: 1px solid rgba(225, 223, 214, 0.08);
+      padding-top: 1rem;
+    }
+
+    .faq-answer-text strong {
+      color: var(--accent-teal);
+    }
+
+    /* ==========================================================================
+       12. LOCALIZAÇÃO, HORÁRIOS & AGENDAMENTO (#localizacao)
+       ========================================================================== */
+    .section-localizacao {
+      background-color: var(--bg-navy-deep);
+      position: relative;
+    }
+
+    .localizacao-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .localizacao-card-info {
+      background: var(--glass-card);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    .crucial-rule-banner {
+      background: rgba(227, 115, 79, 0.15);
+      border: 1px solid var(--cta-coral);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .crucial-rule-icon {
+      color: var(--cta-coral);
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+
+    .crucial-rule-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text-white);
+      margin-bottom: 0.25rem;
+    }
+
+    .crucial-rule-desc {
+      font-size: 0.88rem;
+      color: var(--text-sand);
+      line-height: 1.5;
+    }
+
+    .info-list-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .info-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.1rem;
+    }
+
+    .info-row-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--accent-teal-soft);
+      border: 1px solid var(--glass-border);
+      color: var(--accent-teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .info-row-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-sand-muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .info-row-value {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-white);
+      line-height: 1.4;
+    }
+
+    .location-buttons-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .btn-gps-route {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      background: rgba(31, 181, 181, 0.15);
+      border: 1px solid var(--accent-teal);
+      color: var(--text-white);
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 0.95rem 1.5rem;
+      border-radius: var(--radius-md);
+      transition: all var(--transition-fast);
+    }
+
+    .btn-gps-route:hover {
+      background: var(--accent-teal);
+      color: var(--bg-navy-deep);
+      transform: translateY(-2px);
+    }
+
+    .map-frame-container {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+      height: 520px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+      position: relative;
+    }
+
+    .map-frame-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: contrast(1.05) saturate(1.1);
+    }
+
+    /* ==========================================================================
+       13. FLOATING WHATSAPP CTA
+       ========================================================================== */
+    .floating-whatsapp-widget {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 1500;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .floating-wa-badge {
+      background: var(--bg-navy);
+      border: 1px solid var(--glass-border);
+      color: var(--text-white);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-full);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      backdrop-filter: blur(10px);
+      white-space: nowrap;
+      pointer-events: none;
+      animation: fadeInBadge 3s infinite alternate;
+    }
+
+    .floating-wa-btn {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--cta-coral);
+      color: var(--text-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 28px var(--cta-coral-glow);
+      transition: all var(--transition-fast);
+      cursor: pointer;
+    }
+
+    .floating-wa-btn:hover {
+      background: var(--cta-coral-hover);
+      transform: scale(1.08) translateY(-2px);
+      box-shadow: 0 12px 36px var(--cta-coral-glow);
+      color: #fff;
+    }
+
+    .floating-pulse-ring {
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 2px solid var(--cta-coral);
+      animation: pulseRing 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    }
+
+    @keyframes pulseRing {
+      0% { transform: scale(0.9); opacity: 0.9; }
+      100% { transform: scale(1.4); opacity: 0; }
+    }
+
+    /* ==========================================================================
+       14. FOOTER INSTITUCIONAL
+       ========================================================================== */
+    .site-footer {
+      background-color: var(--bg-navy-deep);
+      border-top: 1px solid rgba(31, 181, 181, 0.15);
+      padding: 5rem 0 2rem 0;
+      position: relative;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+
+    .footer-brand-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .footer-logo-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .footer-logo-img {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .footer-brand-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-white);
+      line-height: 1.1;
+    }
+
+    .footer-brand-title span {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      color: var(--accent-teal);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .footer-desc {
+      font-size: 0.9rem;
+      color: var(--text-sand-muted);
+      line-height: 1.6;
+    }
+
+    .footer-social-links {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .footer-social-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--glass-card);
+      border: 1px solid var(--glass-border-light);
+      color: var(--text-sand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition-fast);
+    }
+
+    .footer-social-icon:hover {
+      background: var(--accent-teal);
+      border-color: var(--accent-teal);
+      color: var(--bg-navy-deep);
+      transform: translateY(-2px);
+    }
+
+    .footer-col-heading {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-nav-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-nav-link {
+      font-size: 0.88rem;
+      color: var(--text-sand-muted);
+      transition: color var(--transition-fast);
+    }
+
+    .footer-nav-link:hover {
+      color: var(--accent-teal);
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+      color: var(--text-sand-muted);
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .footer-contact-item i {
+      color: var(--accent-teal);
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+
+    .footer-bottom-bar {
+      border-top: 1px solid rgba(225, 223, 214, 0.08);
+      padding-top: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.84rem;
+      color: var(--text-sand-muted);
+    }
+
+    .footer-bottom-bar a {
+      color: var(--accent-teal);
+    }
+
+    /* ==========================================================================
+       15. RESPONSIVIDADE ESPECÍFICA
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .sobre-grid, .localizacao-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .sobre-main-img-card {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .sobre-floating-badge {
+        right: 1rem;
+        bottom: 1rem;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+      }
+    }
+
+    @media (max-width: 868px) {
+      .nav-menu-desktop, .btn-pill-cta {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: flex;
+      }
+      .pill-header {
+        padding: 0.45rem 0.85rem;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .floating-wa-badge {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-display-monumental {
+        font-size: clamp(3.8rem, 18vw, 6.5rem);
+      }
+      .hero-editorial-subtitle {
+        font-size: 1.05rem;
+      }
+      .btn-hero-primary, .btn-hero-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+      .section-padding {
+        padding: 4.5rem 0;
+      }
+      .map-frame-container {
+        height: 380px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       PRELOADER / CURTAIN REVEAL COM GSAP
+       ========================================================================== -->
+  <div id="preloader" aria-hidden="true">
+    <div class="preloader-logo-wrap">
+      <img src="./surf/logo.png" alt="Escola de Surf Evandro Santos" class="preloader-logo" onerror="this.src='./surf/logo.jpg'">
+      <div class="preloader-brand">Evandro Santos • Floripa</div>
+    </div>
+    <div class="preloader-bar-bg">
+      <div class="preloader-bar-fill" id="preloader-bar"></div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       HEADER TRANSLÚCIDO (FLOATING PILL BAR) & DRAWER MOBILE
+       ========================================================================== -->
+  <header class="header-wrapper" id="header-bar">
+    <nav class="pill-header" aria-label="Navegação Principal">
+      <a href="#inicio" class="brand-logo-link">
+        <img src="./surf/logo.png" alt="Logo Escola de Surf Evandro Santos" class="brand-logo-img" onerror="this.src='./surf/logo.jpg'">
+        <div class="brand-logo-text">
+          Evandro Santos
+          <span>Surf Camp Floripa</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu-desktop">
+        <li><a href="#inicio" class="nav-link">Início</a></li>
+        <li><a href="#metodo" class="nav-link">Metodologia</a></li>
+        <li><a href="#aulas" class="nav-link">Aulas</a></li>
+        <li><a href="#servicos" class="nav-link">SurfCamp</a></li>
+        <li><a href="#sobre" class="nav-link">Sobre</a></li>
+        <li><a href="#depoimentos" class="nav-link">Depoimentos</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+        <li><a href="#localizacao" class="nav-link">Localização</a></li>
+      </ul>
+
+      <div class="header-actions">
+        <a href="https://wa.me/5548991046867?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20aula%20de%20surf%20com%20hora%20marcada%20na%20Barra%20da%20Lagoa." target="_blank" rel="noopener noreferrer" class="btn-pill-cta" id="header-cta-btn">
+          <i data-lucide="calendar-check" style="width: 16px; height: 16px;"></i>
+          <span>Agendar Horário</span>
+        </a>
+
+        <button class="mobile-menu-btn" id="open-drawer-btn" aria-label="Abrir Menu">
+          <i data-lucide="menu" style="width: 22px; height: 22px;"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer & Overlay -->
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+  <aside class="mobile-drawer" id="mobile-drawer" aria-label="Menu Mobile">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo-text">
+        Evandro Santos
+        <span>Surf Camp Floripa</span>
+      </div>
+      <button class="mobile-drawer-close" id="close-drawer-btn" aria-label="Fechar Menu">
+        <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+      </button>
+    </div>
+
+    <ul class="mobile-nav-list">
+      <li><a href="#inicio" class="mobile-nav-link">Início</a></li>
+      <li><a href="#metodo" class="mobile-nav-link">Metodologia</a></li>
+      <li><a href="#aulas" class="mobile-nav-link">Aulas de Surf</a></li>
+      <li><a href="#servicos" class="mobile-nav-link">SurfCamp & Trips</a></li>
+      <li><a href="#sobre" class="mobile-nav-link">Sobre Evandro Santos</a></li>
+      <li><a href="#depoimentos" class="mobile-nav-link">Depoimentos Reais</a></li>
+      <li><a href="#galeria" class="mobile-nav-link">Galeria</a></li>
+      <li><a href="#faq" class="mobile-nav-link">Dúvidas Frequentes</a></li>
+      <li><a href="#localizacao" class="mobile-nav-link">Localização & Contato</a></li>
+    </ul>
+
+    <div class="mobile-drawer-footer">
+      <a href="https://wa.me/5548991046867?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20aula%20de%20surf%20com%20hora%20marcada%20na%20Barra%20da%20Lagoa." target="_blank" rel="noopener noreferrer" class="btn-pill-cta" style="display:flex; justify-content:center;">
+        <i data-lucide="message-circle" style="width: 18px; height: 18px;"></i>
+        <span>Agendar no WhatsApp</span>
+      </a>
+      <div style="font-size: 0.78rem; text-align: center; color: var(--text-sand-muted);">
+        Atendimento presencial com hora marcada • Barra da Lagoa, SC
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       HERO SECTION CINEMATOGRÁFICA (#inicio)
+       ========================================================================== -->
+  <section class="hero-section" id="inicio">
+    <!-- Vídeo Cinematográfico de Fundo -->
+    <video class="hero-video-bg" id="hero-video" autoplay muted loop playsinline preload="auto">
+      <source src="./surf/hero-video.mp4" type="video/mp4">
+      Seu navegador não suporta vídeos HTML5.
+    </video>
+
+    <!-- Camadas de Gradiente Escuro -->
+    <div class="hero-overlay"></div>
+    <div class="hero-overlay-gradient-bottom"></div>
+
+    <div class="hero-content">
+      <!-- Badges de Autoridade e Agendamento -->
+      <div class="hero-badges-wrap" id="hero-badges">
+        <div class="hero-badge-authority">
+          <span class="star-icon">★</span>
+          <span>5.0 no Google (234+ avaliações) • Barra da Lagoa</span>
+        </div>
+        <div class="hero-badge-appointment">
+          <span class="pulse-dot"></span>
+          <span>Atendimento com Hora Marcada</span>
+        </div>
+      </div>
+
+      <!-- Tipografia Monumental Editorial (Inspiração Red Bull Surfing) -->
+      <div class="hero-title-container">
+        <h1 class="hero-display-monumental" id="hero-title">SURF</h1>
+      </div>
+
+      <!-- Frase de Suporte Editorial (Inspiração Tripgo) -->
+      <div class="hero-subtitle-container">
+        <p class="hero-editorial-subtitle" id="hero-subtitle">
+          Aprenda com quem vive o mar há mais de 40 anos.
+        </p>
+      </div>
+
+      <!-- Chamadas para Ação (CRO) -->
+      <div class="hero-cta-group" id="hero-cta-box">
+        <a href="https://wa.me/5548991046867?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20meu%20hor%C3%A1rio%20para%20aula%20de%20surf%20na%20Barra%20da%20Lagoa." target="_blank" rel="noopener noreferrer" class="btn-hero-primary" id="hero-main-cta">
+          <i data-lucide="message-circle" style="width: 20px; height: 20px;"></i>
+          <span>Agendar Horário no WhatsApp</span>
+        </a>
+        <a href="#metodo" class="btn-hero-secondary">
+          <i data-lucide="play-circle" style="width: 18px; height: 18px;"></i>
+          <span>Conhecer a Metodologia</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Indicador de Rolagem -->
+    <a href="#metodo" class="hero-explore-indicator" id="explore-indicator" aria-label="Rolar para a Metodologia">
+      <span>Explore</span>
+      <i data-lucide="chevron-down" class="explore-bounce-icon" style="width: 18px; height: 18px;"></i>
+    </a>
+  </section>
+
+  <!-- ==========================================================================
+       METODOLOGIA & VÍDEO OFICIAL (#metodo)
+       ========================================================================== -->
+  <section class="section-padding section-metodo" id="metodo">
+    <div class="container">
+      <div class="text-center">
+        <span class="eyebrow gsap-reveal">
+          <i data-lucide="award" style="width: 14px; height: 14px;"></i>
+          Método Consagrado em 40 Anos
+        </span>
+        <h2 class="section-title gsap-reveal">Surf Garantido na Primeira Aula</h2>
+        <p class="section-subtitle gsap-reveal">
+          Nossa metodologia exclusiva combina leitura oceânica, biomecânica e instrução próxima dentro d'água para que você fique em pé na prancha com total segurança logo na primeira sessão.
+        </p>
+      </div>
+
+      <!-- Vídeo Oficial Incorporado do YouTube -->
+      <div class="metodo-video-frame-wrap gsap-reveal">
+        <div class="metodo-video-inner">
+          <iframe 
+            src="https://www.youtube.com/embed/c_F72y3ls9g" 
+            title="Surf Garantido na Primeira Aula - Escola de Surf Evandro Santos" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen 
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- 4 Passos da Aula -->
+      <div class="metodo-steps-grid">
+        <div class="step-card gsap-card">
+          <div class="step-number">01</div>
+          <h3 class="step-title">Teoria no Estúdio</h3>
+          <p class="step-desc">
+            Leitura da arrebentação, identificação de correntes, canais de retorno e posicionamento correto da remada antes de pisar na areia.
+          </p>
+        </div>
+
+        <div class="step-card gsap-card">
+          <div class="step-number">02</div>
+          <h3 class="step-title">Equipamento sob Medida</h3>
+          <p class="step-desc">
+            Pranchas dimensionadas ao seu peso, altura e flexibilidade pelo Shaper Evandro Santos, garantindo estabilidade e flutuação ideal.
+          </p>
+        </div>
+
+        <div class="step-card gsap-card">
+          <div class="step-number">03</div>
+          <h3 class="step-title">Prática na Água</h3>
+          <p class="step-desc">
+            Instrutor sênior colado a você nas ondas da Barra da Lagoa, empurrando no momento exato e orientando o drop com precisão cirúrgica.
+          </p>
+        </div>
+
+        <div class="step-card gsap-card">
+          <div class="step-number">04</div>
+          <h3 class="step-title">Correção & Autonomia</h3>
+          <p class="step-desc">
+            Feedback imediato a cada onda surfada. Você entende os ajustes posturais e ganha a independência necessária para remar e surfar sozinho.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       AULAS & EXPERIÊNCIAS (#aulas)
+       ========================================================================== -->
+  <section class="section-padding section-aulas" id="aulas">
+    <div class="container">
+      <div class="text-center">
+        <span class="eyebrow gsap-reveal">
+          <i data-lucide="waves" style="width: 14px; height: 14px;"></i>
+          Modalidades & Treinamentos
+        </span>
+        <h2 class="section-title gsap-reveal">Experiências no Mar para Todos os Níveis</h2>
+        <p class="section-subtitle gsap-reveal">
+          Do primeiro contato com o oceano até técnicas avançadas de ondas. Escolha a sua modalidade e agende seu horário com antecedência.
+        </p>
+      </div>
+
+      <!-- Alerta de Hora Marcada -->
+      <div class="appointment-alert-box gsap-reveal">
+        <div class="appointment-alert-icon">
+          <i data-lucide="clock" style="width: 22px; height: 22px;"></i>
+        </div>
+        <div class="appointment-alert-text">
+          <strong>Atenção: Atendimento Exclusivamente com Hora Marcada!</strong><br>
+          Nossas vagas diárias são limitadas para respeitar a proporção segura de alunos por instrutor e aproveitar a melhor maré do dia. Reserve antes pelo WhatsApp.
+        </div>
+      </div>
+
+      <!-- Grade com as Fotos Oficiais -->
+      <div class="cards-grid-4">
+        <!-- Card 1: Aulas em Grupo -->
+        <div class="experience-card gsap-card">
+          <div class="card-img-wrap">
+            <img src="./surf/AABkmLeQLxco-TwQilQpGaPjZnKmV6W2g.png" alt="Aulas de Surf em Grupo na Barra da Lagoa" class="card-img" loading="lazy">
+            <span class="card-badge">Mais Popular</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Aulas em Grupo</h3>
+            <p class="card-desc">
+              Máximo de 4 a 5 alunos por instrutor credenciado. Didática passo a passo, ambiente seguro e vibrante para aprender e fazer novas amizades.
+            </p>
+            <ul class="card-features-list">
+              <li class="card-feature-item"><i data-lucide="check-circle-2"></i> Prancha e roupa neoprene inclusos</li>
+              <li class="card-feature-item"><i data-lucide="check-circle-2"></i> Teoria na praia e prática guiada</li>
+              <li class="card-feature-item"><i data-lucide="check-circle-2"></i> Duração: 1h30 a 2h de sessão</li>
+            </ul>
+            <a href="https://wa.me/5548991046867?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20hor%C3%A1rios%20e%20valores%20para%20a%20Aula%20em%20Grupo." target="_blank" rel="noopener noreferrer" class="card-btn">
+              <i data-lucide="calendar"></i>
+              <span>Agendar Aula em Grupo</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2: Aula VIP Particular -->
+        <div class="experience-card gsap-card">
+          <div class="card-img-wrap">
+            <img src="./surf/AABkmLeyhq1sr7Hmt0Ya1kMeGUIGG5H8q.png" alt="Aula VIP Particular de Surf em Florianópolis" class="card-img" loading="lazy">
+            <span class="card-badge">Exclusiva</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Aula VIP Particular (1-on-1)</h3>
+            <p class="card-desc">
+              Atenção 100% individualizada com instrutor sênior. O caminho mais rápido e seguro para destravar a evolução e aprender a ler as ondas.
+            </p>
+            <ul class="card-features-list">
+              <li class="card-feature-item"><i data-lucide="check-circle-2"></i> Instrutor exclusivo dedicado a você</li>
+              <li class="card-feature-item"><i data-lucide="check-circle-2"></i> Ajustes biomecânicos em tempo real</li>
+              <li class="card-feature-item"><i data-lucide="check-circle-2"></i> Escolha do melhor horário de maré</li>
+            </ul>
+            <a href="https://wa.me/5548991046867?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20Aula%20VIP%20Particular%20(1-on-1)." target="_blank" rel="noopener noreferrer" class="card-btn">
+              <i data-lucide="calendar"></i>
+              <span>Agendar Aula VIP</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3: Hidrofoil Floripa -->
+        <div class="experience-card gsap-card">
+          <div class="card-img-wrap">
+            <img src="./surf/AABkmLfdHjka4FNXOuR4Jveeum4xFWO0L.png" alt="Hidrofoil Floripa - Voando sobre a água" class="card-img" loading="lazy">
+            <span class="card-badge">Sensação Única</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Hidrofoil Floripa</h3>
+            <p class="card-desc">
+              Sinta a sensação de voar acima das águas. Equipamentos de carbono de última geração e instrução pioneira em Santa Catarina com Evandro Santos.
+            </p>
+            <ul class="card-features-list">
+              <li class="card-feature-item"><i data-lucide="check-circle-2"></i> Equipamentos de alta tecnologia</li>
+              <li class="card-feature-item"><i data-lucide="check-circle-2"></i> Apoio náutico e segurança total</li>
+              <li class="card-feature-item"><i data-lucide="check-circle-2"></i> Acompanhe no Instagram @hidrofoilfloripa</li>
+            </ul>
+            <a href="https://wa.me/5548991046867?text=Ol%C3%A1!%20Quero%20saber%20mais%20e%20agendar%20uma%20sess%C3%A3o%20de%20Hidrofoil." target="_blank" rel="noopener noreferrer" class="card-btn">
+              <i data-lucide="send"></i>
+              <span>Consultar Hidrofoil</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 4: Sup Wave -->
+        <div class="experience-card gsap-card">
+          <div class="card-img-wrap">
+            <img src="./surf/AHIvA1nXkmlwSe8XwZQCAIRJyMFZtjVk0.png" alt="Sup Wave Stand Up Paddle com Campeão Brasileiro" class="card-img" loading="lazy">
+            <span class="card-badge">Alta Performance</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Sup Wave & Remadas</h3>
+            <p class="card-desc">
+              Aprenda manobras e equilíbrio nas ondas com o Tri-campeão Brasileiro Sup Wave Master. Técnica refinada de remo e leitura de bancada.
+            </p>
+            <ul class="card-features-list">
+              <li class="card-feature-item"><i data-lucide="check-circle-2"></i> Pranchas específicas de performance</li>
+              <li class="card-feature-item"><i data-lucide="check-circle-2"></i> Aulas nas ondas ou remadas na Lagoa</li>
+              <li class="card-feature-item"><i data-lucide="check-circle-2"></i> Aulas para todos os biotipos</li>
+            </ul>
+            <a href="https://wa.me/5548991046867?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20aula%20de%20Sup%20Wave%20/%20Stand%20Up." target="_blank" rel="noopener noreferrer" class="card-btn">
+              <i data-lucide="calendar"></i>
+              <span>Agendar Sup Wave</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SERVIÇOS & HOSPEDAGEM (#servicos)
+       ========================================================================== -->
+  <section class="section-padding section-servicos" id="servicos">
+    <div class="container">
+      <div class="text-center">
+        <span class="eyebrow gsap-reveal">
+          <i data-lucide="home" style="width: 14px; height: 14px;"></i>
+          Estrutura Completa na Ilha
+        </span>
+        <h2 class="section-title gsap-reveal">SurfCamp, Hospedagem & Shaper House</h2>
+        <p class="section-subtitle gsap-reveal">
+          Viva a imersão total do estilo de vida do surf com nossa estrutura localizada a passos do mar na Barra da Lagoa.
+        </p>
+      </div>
+
+      <div class="services-bento-grid">
+        <!-- Bento Card 1: Studio SurfCamp Floripa -->
+        <div class="experience-card bento-card-large gsap-card">
+          <div class="card-img-wrap" style="height: 320px;">
+            <img src="./surf/AABkmLdqS8zuQf_DUxwr3_xeR5PCmETpo.png" alt="Studio SurfCamp Floripa na Barra da Lagoa" class="card-img" loading="lazy">
+            <span class="card-badge">Hospedagem Exclusiva</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Studio SurfCamp Floripa</h3>
+            <p class="card-desc">
+              Acomodação privativa completa com ar-condicionado quente/frio, Smart TV, Wi-Fi de alta velocidade, cozinha equipada, banheiro privativo e estacionamento fechado. Acorde e vá a pé surfar na Barra da Lagoa, com pacotes que combinam hospedagem e aulas diárias.
+            </p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+              <span class="eyebrow" style="margin-bottom:0;"><i data-lucide="tv"></i> Smart TV</span>
+              <span class="eyebrow" style="margin-bottom:0;"><i data-lucide="wifi"></i> Wi-Fi Veloz</span>
+              <span class="eyebrow" style="margin-bottom:0;"><i data-lucide="wind"></i> Climatizado</span>
+              <span class="eyebrow" style="margin-bottom:0;"><i data-lucide="car"></i> Estacionamento</span>
+            </div>
+            <a href="https://wa.me/5548991046867?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20disponibilidade%20para%20o%20Studio%20SurfCamp%20Floripa." target="_blank" rel="noopener noreferrer" class="card-btn">
+              <i data-lucide="calendar"></i>
+              <span>Consultar Datas do Studio</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Bento Card 2: Surf Trips & Safaris Floripa -->
+        <div class="experience-card bento-card-small gsap-card">
+          <div class="card-img-wrap" style="height: 320px;">
+            <img src="./surf/AABkmLesn7aWKqXbakW4W5UOYBbH9l8Z0.png" alt="Surf Trips guiadas em Florianópolis" class="card-img" loading="lazy">
+            <span class="card-badge">Expedições</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Surf Trips & Guia Local</h3>
+            <p class="card-desc">
+              Expedições guiadas pelas melhores bancadas da Ilha da Magia: Joaquina, Praia Mole, Moçambique, Campeche e Matadeiro, selecionadas conforme a direção do vento e o swell.
+            </p>
+            <a href="https://wa.me/5548991046867?text=Ol%C3%A1!%20Tenho%20interesse%20em%20fazer%20uma%20Surf%20Trip%20guiada%20em%20Floripa." target="_blank" rel="noopener noreferrer" class="card-btn" style="margin-top: auto;">
+              <i data-lucide="compass"></i>
+              <span>Planejar Surf Trip</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Bento Card 3: Shaper House & Aluguel -->
+        <div class="experience-card bento-card-small gsap-card">
+          <div class="card-img-wrap" style="height: 260px;">
+            <img src="./surf/AABkmLeS1epzAUo_pSn7nj23BpSVpwTCQ.png" alt="Shaper House e Pranchas Evandro Santos" class="card-img" loading="lazy">
+            <span class="card-badge">Pranchas Sob Medida</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Shaper House & Aluguel</h3>
+            <p class="card-desc">
+              Pranchas de resina epóxi e poliéster shapeadas artesanalmente por Evandro Santos. Aluguel de softboards, pranchas de fibra, wetsuits Mormaii e leashes.
+            </p>
+            <a href="https://wa.me/5548991046867?text=Ol%C3%A1!%20Gostaria%20de%20alugar%20equipamento%20ou%20encomendar%20uma%20prancha%20customizada." target="_blank" rel="noopener noreferrer" class="card-btn" style="margin-top: auto;">
+              <i data-lucide="scissors"></i>
+              <span>Falar com o Shaper</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Bento Card 4: Coaching & Análise de Vídeo -->
+        <div class="experience-card bento-card-large gsap-card">
+          <div class="card-img-wrap" style="height: 260px;">
+            <img src="./surf/AABkmLepKBmQI9pXWKItbuzW543eBCLNw.png" alt="Coaching de Surf e Vídeo Análise" class="card-img" loading="lazy">
+            <span class="card-badge">Evolução Técnica</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Coaching Técnico & Vídeo Análise</h3>
+            <p class="card-desc">
+              Filmagens detalhadas das suas ondas com análise biomecânica frame a frame. Corrija o posicionamento dos pés, a linha de onda, velocidade na cavada e projeção para batidas e rasgadas.
+            </p>
+            <a href="https://wa.me/5548991046867?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20sess%C3%A3o%20de%20Coaching%20com%20V%C3%ADdeo%20An%C3%A1lise." target="_blank" rel="noopener noreferrer" class="card-btn" style="margin-top: auto;">
+              <i data-lucide="video"></i>
+              <span>Agendar Vídeo Análise</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       AUTORIDADE & HISTÓRIA (#sobre)
+       ========================================================================== -->
+  <section class="section-padding section-sobre" id="sobre">
+    <div class="container">
+      <div class="sobre-grid">
+        <div class="sobre-visual-wrap gsap-reveal">
+          <div class="sobre-main-img-card">
+            <img src="./surf/AABkmLeyhq1sr7Hmt0Ya1kMeGUIGG5H8q.png" alt="Evandro Santos - Shaper e Lenda do Surf" class="sobre-main-img" loading="lazy">
+          </div>
+          <div class="sobre-floating-badge">
+            <div class="sobre-badge-number">40+</div>
+            <div class="sobre-badge-label">Anos de Pura Vivência no Mar</div>
+          </div>
+        </div>
+
+        <div class="sobre-content gsap-reveal">
+          <span class="eyebrow">
+            <i data-lucide="shield-check" style="width: 14px; height: 14px;"></i>
+            Autoridade & Tradição
+          </span>
+          <h2 class="section-title">Evandro Santos: A Lenda Viva do Surf em Floripa</h2>
+          <p class="sobre-bio-text">
+            Com mais de 40 anos de surf ininterruptos, Evandro Santos é uma das figuras mais respeitadas do litoral brasileiro. Shaper pioneiro, fabricou centenas de pranchas que cruzaram oceanos, além de ser <strong>Tri-campeão Brasileiro Sup Wave Master</strong> e sócio-fundador da ACES (Associação Catarinense das Escolas de Surf).
+          </p>
+          <p class="sobre-bio-text" style="color: var(--text-sand-muted);">
+            Sua escola na Barra da Lagoa é referência em segurança e acolhimento, transformando o medo do mar em paixão duradoura para pessoas de todas as idades, desde crianças de 4 anos até adultos que nunca pisaram numa prancha.
+          </p>
+
+          <div class="sobre-stats-row">
+            <div class="stat-item">
+              <div class="stat-item-number">40+</div>
+              <div class="stat-item-label">Anos de Oceano</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-item-number">15k+</div>
+              <div class="stat-item-label">Alunos Formados</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-item-number">5.0 ★</div>
+              <div class="stat-item-label">Nota Máxima Real</div>
+            </div>
+          </div>
+
+          <div class="team-highlight-box">
+            <div class="team-highlight-title">
+              <i data-lucide="users" style="width: 18px; height: 18px; color: var(--accent-teal);"></i>
+              Equipe Especializada: Pablo & Adriana
+            </div>
+            <div class="team-highlight-desc">
+              Ao lado de Evandro, <strong>Pablo</strong> atua como instrutor sênior com certificação em resgate aquático e salva-vidas, enquanto <strong>Adriana</strong> cuida com dedicação da coordenação do Studio SurfCamp e atendimento personalizado aos alunos.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PROVA SOCIAL REAL (#depoimentos)
+       ========================================================================== -->
+  <section class="section-padding section-depoimentos" id="depoimentos">
+    <div class="container">
+      <div class="text-center">
+        <span class="eyebrow gsap-reveal">
+          <i data-lucide="heart" style="width: 14px; height: 14px;"></i>
+          Histórias Reais de Quem Viveu o Mar
+        </span>
+        <h2 class="section-title gsap-reveal">Avaliações 100% Reais no Google & TripAdvisor</h2>
+        <p class="section-subtitle gsap-reveal">
+          A satisfação e a segurança dos nossos alunos são atestadas por quem já esteve dentro d'água conosco na Barra da Lagoa.
+        </p>
+      </div>
+
+      <!-- Barra de Confiança / TripAdvisor -->
+      <div class="reviews-trust-bar gsap-reveal">
+        <div class="trust-item">
+          <span class="stars-gold">★★★★★</span>
+          <span>Nota 5.0 no Google (234+ avaliações)</span>
+        </div>
+        <div class="trust-item">
+          <i data-lucide="award" style="color: var(--accent-teal);"></i>
+          <a href="https://www.tripadvisor.com.br/Attraction_Review-g1113399-d3459976-Reviews-Evandro_Santos_Surf_School-Barra_da_Lagoa_Florianopolis_State_of_Santa_Catarina.html" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: var(--text-sand);">
+            Ver Perfil Oficial no TripAdvisor
+          </a>
+        </div>
+      </div>
+
+      <!-- Grade de Depoimentos Citados -->
+      <div class="reviews-grid">
+        <!-- Depoimento 1: Alexandre Neves -->
+        <div class="review-card gsap-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">
+            "Levei meu filho de 7 anos e a experiência foi indescritível! O Evandro e a equipe têm uma paciência, técnica e carinho absurdos. Na segunda onda meu filho já estava em pé vibrando! Segurança nível mil."
+          </p>
+          <div class="review-author-wrap">
+            <div class="review-avatar">A</div>
+            <div>
+              <div class="review-author-name">Alexandre Neves</div>
+              <div class="review-author-info">Pai de aluno • Google Review 5.0</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depoimento 2: Sophia -->
+        <div class="review-card gsap-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">
+            "Nunca tinha subido numa prancha e morria de medo de onda grande. A metodologia de respiração e leitura do mar na areia fez toda a diferença. Fiquei em pé na primeira aula como eles prometem! Inesquecível!"
+          </p>
+          <div class="review-author-wrap">
+            <div class="review-avatar">S</div>
+            <div>
+              <div class="review-author-name">Sophia</div>
+              <div class="review-author-info">Iniciante • TripAdvisor Review 5.0</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depoimento 3: George Justo -->
+        <div class="review-card gsap-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">
+            "Melhor escola de surf do Brasil, sem exageros. O Evandro é uma lenda viva do esporte, shaper de mão cheia e ser humano nota 10. O SurfCamp é super aconchegante, limpo e perto de tudo na Barra."
+          </p>
+          <div class="review-author-wrap">
+            <div class="review-avatar">G</div>
+            <div>
+              <div class="review-author-name">George Justo</div>
+              <div class="review-author-info">Hóspede SurfCamp • Google Review 5.0</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depoimento 4: Bárbara Kolling -->
+        <div class="review-card gsap-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">
+            "Fiz a aula com a equipe do Evandro durante minhas férias e foi o ponto alto da viagem. Equipamentos impecáveis, roupas de neoprene de primeira e atenção total dentro d'água. Recomendo de olhos fechados!"
+          </p>
+          <div class="review-author-wrap">
+            <div class="review-avatar">B</div>
+            <div>
+              <div class="review-author-name">Bárbara Kolling</div>
+              <div class="review-author-info">Turista em Floripa • Google Review 5.0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       GALERIA DE FOTOS DINÂMICA COM LIGHTBOX (#galeria)
+       ========================================================================== -->
+  <section class="section-padding section-galeria" id="galeria">
+    <div class="container">
+      <div class="text-center">
+        <span class="eyebrow gsap-reveal">
+          <i data-lucide="camera" style="width: 14px; height: 14px;"></i>
+          Momentos na Barra da Lagoa
+        </span>
+        <h2 class="section-title gsap-reveal">Galeria de Aulas & Vida no Mar</h2>
+        <p class="section-subtitle gsap-reveal">
+          Clique nas fotos reais da nossa escola para ampliar em tela cheia e conferir a energia das nossas sessões.
+        </p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item col-8 gsap-card" onclick="openLightbox('./surf/4f5658_ced2192410c044ce883199fc7a8dc824~mv2.png', 'Turma de surf na praia da Barra da Lagoa')">
+          <img src="./surf/4f5658_ced2192410c044ce883199fc7a8dc824~mv2.png" alt="Aulas de Surf na Barra da Lagoa" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-zoom-badge"><i data-lucide="maximize-2"></i> Ver em Alta Resolução</span>
+          </div>
+        </div>
+
+        <div class="gallery-item col-4 gsap-card" onclick="openLightbox('./surf/4f5658_ea1490e87ce94ca1b685dadef23b3a3d~mv2.png', 'Instrutores guiando alunos na água')">
+          <img src="./surf/4f5658_ea1490e87ce94ca1b685dadef23b3a3d~mv2.png" alt="Instrução no mar" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-zoom-badge"><i data-lucide="maximize-2"></i> Ampliar Foto</span>
+          </div>
+        </div>
+
+        <div class="gallery-item col-4 gsap-card" onclick="openLightbox('./surf/4f5658_da9907aa9ee34ef7bb9b9b517e1beea3~mv2.png', 'Equipamentos e pranchas sob medida')">
+          <img src="./surf/4f5658_da9907aa9ee34ef7bb9b9b517e1beea3~mv2.png" alt="Pranchas de Surf Evandro Santos" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-zoom-badge"><i data-lucide="maximize-2"></i> Ampliar Foto</span>
+          </div>
+        </div>
+
+        <div class="gallery-item col-4 gsap-card" onclick="openLightbox('./surf/4f5658_40ed200142424fd0b85fcdb47e9abec7~mv2.png', 'Felicidade após ficar em pé na onda')">
+          <img src="./surf/4f5658_40ed200142424fd0b85fcdb47e9abec7~mv2.png" alt="Aluno feliz surfando a onda" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-zoom-badge"><i data-lucide="maximize-2"></i> Ampliar Foto</span>
+          </div>
+        </div>
+
+        <div class="gallery-item col-4 gsap-card" onclick="openLightbox('./surf/4f5658_4a8dd09f3d00419eb1f4d3b36a85b98a~mv2.png', 'Treinamento e teoria na areia')">
+          <img src="./surf/4f5658_4a8dd09f3d00419eb1f4d3b36a85b98a~mv2.png" alt="Teoria de surf na areia" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-zoom-badge"><i data-lucide="maximize-2"></i> Ampliar Foto</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Lightbox em Vanilla JS -->
+  <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-label="Visualizador de Fotos">
+    <div class="lightbox-content-wrap">
+      <button class="lightbox-close-btn" id="lightbox-close-btn" aria-label="Fechar Foto">
+        <i data-lucide="x" style="width: 22px; height: 22px;"></i>
+      </button>
+      <img src="" alt="Foto ampliada da galeria" class="lightbox-img" id="lightbox-target-img">
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       FAQ INTERATIVO (#faq)
+       ========================================================================== -->
+  <section class="section-padding section-faq" id="faq">
+    <div class="container">
+      <div class="text-center">
+        <span class="eyebrow gsap-reveal">
+          <i data-lucide="help-circle" style="width: 14px; height: 14px;"></i>
+          Perguntas Frequentes
+        </span>
+        <h2 class="section-title gsap-reveal">Tudo o que Precisa Saber Antes de Entrar na Água</h2>
+        <p class="section-subtitle gsap-reveal">
+          Esclareça suas dúvidas sobre horários, reservas, segurança e os equipamentos inclusos nas aulas.
+        </p>
+      </div>
+
+      <div class="faq-accordion-list">
+        <!-- FAQ 1 -->
+        <div class="faq-item gsap-card">
+          <button class="faq-question-btn" aria-expanded="false">
+            <span>Como funciona o atendimento presencial? Preciso agendar antes?</span>
+            <i data-lucide="chevron-down" class="faq-chevron"></i>
+          </button>
+          <div class="faq-answer-pane">
+            <p class="faq-answer-text">
+              <strong>Sim, 100% com hora marcada!</strong> Não operamos com fila aberta na areia. Todas as aulas são pré-agendadas via WhatsApp para que possamos analisar a melhor maré do dia, montar turmas niveladas e garantir a quantidade exata de instrutores para máxima segurança.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item gsap-card">
+          <button class="faq-question-btn" aria-expanded="false">
+            <span>Eu não sei nadar bem. Posso fazer a aula de surf?</span>
+            <i data-lucide="chevron-down" class="faq-chevron"></i>
+          </button>
+          <div class="faq-answer-pane">
+            <p class="faq-answer-text">
+              <strong>Sim, perfeitamente!</strong> As aulas para iniciantes acontecem na parte rasa (inside), onde a água bate na cintura e você consegue ficar em pé com firmeza. Além disso, a prancha é equipada com leash de alta resistência e o instrutor permanece ao seu lado durante todo o tempo na água.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item gsap-card">
+          <button class="faq-question-btn" aria-expanded="false">
+            <span>Os equipamentos estão incluídos no valor da aula?</span>
+            <i data-lucide="chevron-down" class="faq-chevron"></i>
+          </button>
+          <div class="faq-answer-pane">
+            <p class="faq-answer-text">
+              <strong>Sim, tudo incluso!</strong> Disponibilizamos prancha apropriada para o seu nível (feita sob medida na shaper house de Evandro Santos), roupa de neoprene Mormaii para o conforto térmico, lycra oficial com proteção UV, leash e parafina.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item gsap-card">
+          <button class="faq-question-btn" aria-expanded="false">
+            <span>A partir de qual idade as crianças podem participar?</span>
+            <i data-lucide="chevron-down" class="faq-chevron"></i>
+          </button>
+          <div class="faq-answer-pane">
+            <p class="faq-answer-text">
+              Atendemos crianças <strong>a partir dos 4 anos de idade</strong>. Para os pequenos, utilizamos metodologia lúdica com acompanhamento individual dedicado (1 instrutor exclusivo colado na criança), priorizando a diversão e a total segurança.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item gsap-card">
+          <button class="faq-question-btn" aria-expanded="false">
+            <span>Como reservo o Studio SurfCamp ou pacotes de hospedagem?</span>
+            <i data-lucide="chevron-down" class="faq-chevron"></i>
+          </button>
+          <div class="faq-answer-pane">
+            <p class="faq-answer-text">
+              Basta nos chamar no WhatsApp informando as datas pretendidas. Nós verificamos a disponibilidade do Studio e montamos um pacote personalizado com hospedagem e aulas diárias de surf inclusas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       LOCALIZAÇÃO, HORÁRIOS & AGENDAMENTO (#localizacao)
+       ========================================================================== -->
+  <section class="section-padding section-localizacao" id="localizacao">
+    <div class="container">
+      <div class="text-center">
+        <span class="eyebrow gsap-reveal">
+          <i data-lucide="map-pin" style="width: 14px; height: 14px;"></i>
+          Barra da Lagoa • Florianópolis
+        </span>
+        <h2 class="section-title gsap-reveal">Onde Estamos & Regras de Atendimento</h2>
+        <p class="section-subtitle gsap-reveal">
+          Nossa sede fica em um ponto privilegiado e tranquilo da Barra da Lagoa, com fácil acesso ao mar e estrutura completa para receber você.
+        </p>
+      </div>
+
+      <div class="localizacao-grid">
+        <div class="localizacao-card-info gsap-reveal">
+          <!-- Regra Crucial Destacada -->
+          <div class="crucial-rule-banner">
+            <i data-lucide="alert-circle" class="crucial-rule-icon" style="width: 24px; height: 24px;"></i>
+            <div>
+              <div class="crucial-rule-title">Atendimento Presencial: Exclusivamente com Hora Marcada</div>
+              <div class="crucial-rule-desc">
+                Para manter a excelência técnica e o padrão de segurança, os atendimentos e aulas ocorrem <strong>estritamente mediante agendamento prévio</strong> (Terça a Domingo).
+              </div>
+            </div>
+          </div>
+
+          <div class="info-list-rows">
+            <div class="info-row">
+              <div class="info-row-icon">
+                <i data-lucide="map-pin" style="width: 22px; height: 22px;"></i>
+              </div>
+              <div>
+                <div class="info-row-label">Endereço Oficial</div>
+                <div class="info-row-value">
+                  Rua Santos Reis, 88 - Barra da Lagoa<br>
+                  Florianópolis - SC, CEP 88061-365
+                </div>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <div class="info-row-icon">
+                <i data-lucide="clock" style="width: 22px; height: 22px;"></i>
+              </div>
+              <div>
+                <div class="info-row-label">Horários de Operação</div>
+                <div class="info-row-value">
+                  Aulas de Surf no Mar: 06:00 às 18:00 (Terça a Domingo)<br>
+                  Suporte Online & WhatsApp: até às 20:00 todos os dias
+                </div>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <div class="info-row-icon">
+                <i data-lucide="phone-call" style="width: 22px; height: 22px;"></i>
+              </div>
+              <div>
+                <div class="info-row-label">Contato Direto</div>
+                <div class="info-row-value">
+                  WhatsApp: +55 (48) 99104-6867
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="location-buttons-wrap">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Rua+Santos+Reis,+88+-+Barra+da+Lagoa,+Florianopolis+-+SC,+88061-365" target="_blank" rel="noopener noreferrer" class="btn-gps-route">
+              <i data-lucide="navigation" style="width: 18px; height: 18px;"></i>
+              <span>Como Chegar (Rota GPS no Google Maps)</span>
+            </a>
+            <a href="https://wa.me/5548991046867?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20para%20conhecer%20a%20escola%20e%20fazer%20uma%20aula." target="_blank" rel="noopener noreferrer" class="card-btn" style="text-align:center;">
+              <i data-lucide="message-circle" style="width: 18px; height: 18px;"></i>
+              <span>Agendar Minha Aula Agora</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Google Maps Responsivo -->
+        <div class="map-frame-container gsap-reveal">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3536.0357771746654!2d-48.43108992383841!3d-27.57463567625902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95273934335bc45f%3A0xb304b78bb492040b!2sR.%20Santos%20Reis%2C%2088%20-%20Barra%20da%20Lagoa%2C%20Florian%C3%B3polis%20-%20SC%2C%2088061-365!5e0!3m2!1spt-BR!2sbr!4v1710000000000!5m2!1spt-BR!2sbr" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade" 
+            title="Localização da Escola de Surf Evandro Santos na Barra da Lagoa">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       BOTÃO FLUTUANTE DE WHATSAPP
+       ========================================================================== -->
+  <aside class="floating-whatsapp-widget" aria-label="Atendimento no WhatsApp">
+    <div class="floating-wa-badge">Agende a sua Sessão</div>
+    <a href="https://wa.me/5548991046867?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20aula%20de%20surf%20/%20consultar%20hor%C3%A1rios%20na%20Escola%20Evandro%20Santos." target="_blank" rel="noopener noreferrer" class="floating-wa-btn" id="floating-whatsapp-btn" aria-label="Falar no WhatsApp">
+      <div class="floating-pulse-ring"></div>
+      <i data-lucide="message-circle" style="width: 30px; height: 30px;"></i>
+    </a>
+  </aside>
+
+  <!-- ==========================================================================
+       RODAPÉ INSTITUCIONAL COMPLETO
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Coluna 1: Marca & Resumo -->
+        <div class="footer-brand-col">
+          <div class="footer-logo-row">
+            <img src="./surf/logo.png" alt="Escola de Surf Evandro Santos" class="footer-logo-img" onerror="this.src='./surf/logo.jpg'">
+            <div class="footer-brand-title">
+              Evandro Santos
+              <span>Surf Camp Floripa</span>
+            </div>
+          </div>
+          <p class="footer-desc">
+            Mais de 40 anos dedicados ao mar, ao aprendizado seguro do surf e à cultura de respeito ao oceano na Barra da Lagoa, Florianópolis - SC.
+          </p>
+          <div class="footer-social-links">
+            <a href="https://www.instagram.com/escoladesurfflorianopolis/" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Instagram Oficial">
+              <i data-lucide="instagram" style="width: 18px; height: 18px;"></i>
+            </a>
+            <a href="https://www.instagram.com/hidrofoilfloripa/" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Instagram Hidrofoil">
+              <i data-lucide="waves" style="width: 18px; height: 18px;"></i>
+            </a>
+            <a href="https://www.tripadvisor.com.br/Attraction_Review-g1113399-d3459976-Reviews-Evandro_Santos_Surf_School-Barra_da_Lagoa_Florianopolis_State_of_Santa_Catarina.html" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="TripAdvisor">
+              <i data-lucide="award" style="width: 18px; height: 18px;"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Coluna 2: Navegação -->
+        <div>
+          <h4 class="footer-col-heading">Navegação</h4>
+          <ul class="footer-nav-links">
+            <li><a href="#inicio" class="footer-nav-link">Início</a></li>
+            <li><a href="#metodo" class="footer-nav-link">Metodologia</a></li>
+            <li><a href="#aulas" class="footer-nav-link">Aulas & Treinamentos</a></li>
+            <li><a href="#servicos" class="footer-nav-link">Studio SurfCamp</a></li>
+            <li><a href="#sobre" class="footer-nav-link">História de Evandro Santos</a></li>
+            <li><a href="#depoimentos" class="footer-nav-link">Depoimentos de Alunos</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3: Modalidades -->
+        <div>
+          <h4 class="footer-col-heading">Modalidades</h4>
+          <ul class="footer-nav-links">
+            <li><a href="#aulas" class="footer-nav-link">Aulas em Grupo</a></li>
+            <li><a href="#aulas" class="footer-nav-link">Aula VIP 1-on-1</a></li>
+            <li><a href="#aulas" class="footer-nav-link">Hidrofoil Floripa</a></li>
+            <li><a href="#aulas" class="footer-nav-link">Sup Wave Master</a></li>
+            <li><a href="#servicos" class="footer-nav-link">Surf Trips Floripa</a></li>
+            <li><a href="#servicos" class="footer-nav-link">Aluguel de Pranchas</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 4: Atendimento & Horários -->
+        <div>
+          <h4 class="footer-col-heading">Atendimento & Endereço</h4>
+          <div class="footer-contact-item">
+            <i data-lucide="map-pin"></i>
+            <span>Rua Santos Reis, 88 - Barra da Lagoa, Florianópolis - SC</span>
+          </div>
+          <div class="footer-contact-item">
+            <i data-lucide="clock"></i>
+            <span>Terça a Domingo: 06:00 às 18:00 (Aulas no Mar)</span>
+          </div>
+          <div class="footer-contact-item">
+            <i data-lucide="shield-alert"></i>
+            <span style="color: var(--accent-teal);">Atendimento presencial exclusivamente com hora marcada</span>
+          </div>
+          <div class="footer-contact-item">
+            <i data-lucide="phone"></i>
+            <span>WhatsApp: (48) 99104-6867</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Barra Inferior com Créditos e Copyright -->
+      <div class="footer-bottom-bar">
+        <div>
+          © 2026 Escola de Surf Evandro Santos & Surf Camp Floripa. Todos os direitos reservados.
+        </div>
+        <div>
+          Desenvolvido com Padrão Awwwards & High Performance • Barra da Lagoa, SC
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       SCRIPTS JAVASCRIPT: GSAP, SCROLLTRIGGER & INTERAÇÕES
+       ========================================================================== -->
+  <script>
+    // Inicialização dos Ícones Lucide
+    lucide.createIcons();
+
+    // Registro do Plugin ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ==========================================================================
+    // 1. ANIMAÇÃO DE ABERTURA CINEMATOGRÁFICA (INTRO TIMELINE)
+    // ==========================================================================
+    window.addEventListener('DOMContentLoaded', () => {
+      const preloader = document.getElementById('preloader');
+      const preloaderBar = document.getElementById('preloader-bar');
+      const heroVideo = document.getElementById('hero-video');
+      const heroTitle = document.getElementById('hero-title');
+      const heroSubtitle = document.getElementById('hero-subtitle');
+      const heroBadges = document.getElementById('hero-badges');
+      const heroCtaBox = document.getElementById('hero-cta-box');
+      const exploreIndicator = document.getElementById('explore-indicator');
+      const headerBar = document.getElementById('header-bar');
+
+      // Timeline de abertura
+      const introTl = gsap.timeline();
+
+      // Simulação de preenchimento da barra de carregamento
+      introTl.to(preloaderBar, {
+        width: '100%',
+        duration: 0.8,
+        ease: 'power2.inOut'
+      })
+      // Desvanecer preloader revelando o vídeo
+      .to(preloader, {
+        opacity: 0,
+        duration: 0.6,
+        ease: 'power2.out',
+        onComplete: () => {
+          preloader.style.display = 'none';
+        }
+      })
+      // Efeito Zoom-out cinematográfico no vídeo de fundo (scale 1.15 -> 1.0)
+      .fromTo(heroVideo, 
+        { scale: 1.15 }, 
+        { scale: 1.0, duration: 1.8, ease: 'power2.out' }, 
+        '-=0.4'
+      )
+      // Revelação do Título Monumental "SURF" subindo da máscara
+      .to(heroTitle, {
+        y: '0%',
+        duration: 1.0,
+        ease: 'power3.out'
+      }, '-=1.4')
+      // Revelação da Frase Editorial de Suporte
+      .to(heroSubtitle, {
+        y: '0%',
+        duration: 0.9,
+        ease: 'power3.out'
+      }, '-=0.7')
+      // Entrada dos Badges
+      .fromTo(heroBadges,
+        { opacity: 0, y: -15 },
+        { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' },
+        '-=0.5'
+      )
+      // Entrada dos Botões de Ação
+      .to(heroCtaBox, {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        ease: 'power2.out'
+      }, '-=0.4')
+      // Header flutuante desce suavemente do topo
+      .fromTo(headerBar,
+        { y: -50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' },
+        '-=0.5'
+      )
+      // Entrada do indicador "Explore ↓"
+      .to(exploreIndicator, {
+        opacity: 1,
+        duration: 0.6,
+        ease: 'power2.out'
+      }, '-=0.3');
+
+      // ==========================================================================
+      // 2. SCROLLTRIGGER NAS DEMAIS SEÇÕES
+      // ==========================================================================
+      // Fade-up em títulos e subtítulos
+      gsap.utils.toArray('.gsap-reveal').forEach((elem) => {
+        gsap.from(elem, {
+          scrollTrigger: {
+            trigger: elem,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse'
+          },
+          y: 40,
+          opacity: 0,
+          duration: 0.85,
+          ease: 'power2.out'
+        });
+      });
+
+      // Stagger suave nos cards
+      const sectionsWithCards = document.querySelectorAll('.metodo-steps-grid, .cards-grid-4, .services-bento-grid, .reviews-grid, .gallery-grid, .faq-accordion-list');
+      sectionsWithCards.forEach((grid) => {
+        const cards = grid.querySelectorAll('.gsap-card');
+        if (cards.length > 0) {
+          gsap.from(cards, {
+            scrollTrigger: {
+              trigger: grid,
+              start: 'top 80%',
+              toggleActions: 'play none none reverse'
+            },
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: 'power2.out'
+          });
+        }
+      });
+    });
+
+    // ==========================================================================
+    // 3. MENU MOBILE DRAWER INTERATIVO COM GSAP
+    // ==========================================================================
+    const openDrawerBtn = document.getElementById('open-drawer-btn');
+    const closeDrawerBtn = document.getElementById('close-drawer-btn');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+    const drawerOverlay = document.getElementById('drawer-overlay');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    function openDrawer() {
+      drawerOverlay.classList.add('active');
+      gsap.to(mobileDrawer, {
+        x: '0%',
+        duration: 0.4,
+        ease: 'power3.out'
+      });
+    }
+
+    function closeDrawer() {
+      drawerOverlay.classList.remove('active');
+      gsap.to(mobileDrawer, {
+        x: '100%',
+        duration: 0.35,
+        ease: 'power3.in'
+      });
+    }
+
+    if (openDrawerBtn) openDrawerBtn.addEventListener('click', openDrawer);
+    if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeDrawer);
+    if (drawerOverlay) drawerOverlay.addEventListener('click', closeDrawer);
+    mobileLinks.forEach(link => link.addEventListener('click', closeDrawer));
+
+    // ==========================================================================
+    // 4. FAQ ACCORDION INTERATIVO
+    // ==========================================================================
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach((item) => {
+      const btn = item.querySelector('.faq-question-btn');
+      btn.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        // Fecha outros itens
+        faqItems.forEach(i => {
+          i.classList.remove('active');
+          i.querySelector('.faq-question-btn').setAttribute('aria-expanded', 'false');
+        });
+        // Alterna o selecionado
+        if (!isActive) {
+          item.classList.add('active');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // ==========================================================================
+    // 5. LIGHTBOX MODAL PARA A GALERIA
+    // ==========================================================================
+    const lightboxModal = document.getElementById('lightbox-modal');
+    const lightboxImg = document.getElementById('lightbox-target-img');
+    const lightboxCloseBtn = document.getElementById('lightbox-close-btn');
+
+    function openLightbox(src, altText) {
+      if (lightboxImg && lightboxModal) {
+        lightboxImg.src = src;
+        lightboxImg.alt = altText || 'Foto da Galeria';
+        lightboxModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeLightbox() {
+      if (lightboxModal) {
+        lightboxModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    if (lightboxCloseBtn) {
+      lightboxCloseBtn.addEventListener('click', closeLightbox);
+    }
+
+    if (lightboxModal) {
+      lightboxModal.addEventListener('click', (e) => {
+        if (e.target === lightboxModal) {
+          closeLightbox();
+        }
+      });
+    }
+
+    // Fechar com tecla ESC
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightboxModal && lightboxModal.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+  </script>
+</body>
+</html>
