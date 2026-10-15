@@ -227,15 +227,22 @@
        ========================================================================== */
     .header-wrapper {
       position: fixed;
-      top: 1rem;
+      top: 0;
       left: 0;
-      right: 0;
+      width: 100%;
       z-index: 1000;
-      display: flex;
-      justify-content: center;
-      padding: 0 1rem;
+      padding: 20px 5%;
+      background: transparent;
       pointer-events: none;
-      transform: translateZ(0);
+      transition: background 0.3s ease, padding 0.3s ease, backdrop-filter 0.3s ease;
+    }
+
+    /* Ao rolar para fora do mar, um véu sutil garante leitura dos links */
+    .header-wrapper.scrolled {
+      padding: 12px 5%;
+      background: rgba(6, 26, 40, 0.55);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
     .pill-header {
@@ -243,39 +250,45 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-      background: rgba(10, 43, 66, 0.68);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(31, 181, 181, 0.32);
-      border-radius: var(--radius-full);
-      max-width: 1080px;
+      gap: 1.5rem;
+      background: none;
+      border: none;
+      box-shadow: none;
+      border-radius: 0;
       width: 100%;
-      padding: 7px 20px;
-      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.35);
-      transition: all var(--transition);
-    }
-
-    .pill-header:hover {
-      border-color: rgba(56, 225, 225, 0.5);
+      max-width: none;
+      padding: 0;
     }
 
     .brand-logo-link {
       display: flex;
       align-items: center;
       gap: 0.65rem;
+      flex-shrink: 0;
     }
 
-    /* Logo integrado sem borda quadrada branca */
+    /* Logo isolada no canto: sem fundo, moldura ou borda */
     .brand-logo-img {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 1.5px solid var(--accent-teal);
-      background: transparent;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-      overflow: hidden;
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      border: none;
+      border-radius: 0;
+      background: none;
+      box-shadow: none;
+      transition: width 0.3s ease, height 0.3s ease;
+    }
+
+    .header-wrapper.scrolled .brand-logo-img {
+      width: 46px;
+      height: 46px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
     }
 
     .brand-logo-text {
@@ -300,14 +313,18 @@
     .nav-menu-desktop {
       display: flex;
       align-items: center;
-      gap: 1.1rem;
+      justify-content: center;
+      flex: 1;
+      gap: clamp(1rem, 1.8vw, 1.9rem);
       list-style: none;
     }
 
     .nav-link {
-      font-size: 0.84rem;
-      font-weight: 500;
-      color: var(--text-sand);
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      letter-spacing: 0.02em;
+      text-shadow: 0 1px 10px rgba(6, 26, 40, 0.45);
       transition: color var(--transition);
     }
 
@@ -376,11 +393,12 @@
 
     .mobile-menu-btn {
       display: none;
-      width: 38px;
-      height: 38px;
+      width: 42px;
+      height: 42px;
+      flex-shrink: 0;
       border-radius: 50%;
-      background: rgba(31, 181, 181, 0.15);
-      border: 1px solid var(--glass-border);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.4);
       color: var(--text-white);
       align-items: center;
       justify-content: center;
@@ -598,17 +616,16 @@
       background: rgba(56, 225, 225, 0.4);
     }
 
-    /* Título Inspirado em "CATCH THE WAVE" */
+    /* Título em Pacifico */
     .hero-editorial-title {
-      font-family: var(--font-display);
-      font-size: clamp(2.8rem, 8vw, 6.2rem);
-      font-weight: 900;
-      line-height: 1.05;
-      letter-spacing: clamp(2px, 0.5vw, 5px);
-      text-transform: uppercase;
+      font-family: var(--font-script);
+      font-size: clamp(3.2rem, 9vw, 7rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: 0;
+      text-transform: none;
       color: #FFFFFF;
       margin-bottom: 1.25rem;
-      filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.35));
     }
 
     /* Frase Editorial de Suporte */
@@ -1780,10 +1797,24 @@
     /* ==========================================================================
        14. RESPONSIVIDADE ULTRA-FLUIDA (MOBILE / TABLET)
        ========================================================================== */
-    @media (max-width: 1040px) {
+    @media (max-width: 1180px) {
       .nav-menu-desktop { display: none; }
       .mobile-menu-btn { display: flex; }
-      .pill-header { max-width: 95%; }
+      .pill-header { justify-content: space-between; }
+    }
+
+    @media (max-width: 680px) {
+      .header-wrapper { padding: 14px 5%; }
+      .header-wrapper.scrolled { padding: 10px 5%; }
+      .brand-logo-img { width: 46px; height: 46px; }
+      .header-wrapper.scrolled .brand-logo-img { width: 40px; height: 40px; }
+      #header-book-cta { display: none; }
+      .header-actions { gap: 0.5rem; }
+      .lang-btn { padding: 4px 6px; }
+    }
+
+    @media (max-width: 400px) {
+      .header-actions .lang-btn span:last-child { display: none; }
     }
 
     @media (max-width: 900px) {
@@ -1832,12 +1863,8 @@
        ========================================================================== -->
   <header class="header-wrapper" id="header-bar">
     <nav class="pill-header" aria-label="Navegação Principal">
-      <a href="#inicio" class="brand-logo-link">
-        <img src="./surf/logo.png" alt="Logo Escola de Surf Evandro Santos" class="brand-logo-img" width="38" height="38" onerror="this.src='./surf/logo.jpg'">
-        <div class="brand-logo-text">
-          Evandro Santos
-          <span data-i18n="brand_tag">Surf Camp Floripa</span>
-        </div>
+      <a href="#inicio" class="brand-logo-link" aria-label="Escola de Surf Evandro Santos - Início">
+        <img src="./surf/logo-transparent.png" alt="Logo Escola de Surf Evandro Santos" class="brand-logo-img" width="56" height="56" onerror="this.onerror=null;this.src='./surf/logo.jpg'">
       </a>
 
       <ul class="nav-menu-desktop">
@@ -1851,7 +1878,7 @@
         <li><a href="#localizacao" class="nav-link" data-i18n="nav_localizacao">Localização</a></li>
       </ul>
 
-      <div style="display: flex; align-items: center; gap: 0.65rem;">
+      <div class="header-actions">
         <!-- Seletor Moderno de Idiomas -->
         <div class="lang-switcher" id="header-lang-switcher" aria-label="Selecione o Idioma">
           <button class="lang-btn active" data-lang="pt" title="Português">
@@ -1960,7 +1987,7 @@
       <div class="hero-kicker" data-i18n="hero_kicker">FLORIANÓPOLIS • BARRA DA LAGOA</div>
 
       <!-- Título de Revista Limpo e Imponente -->
-      <h1 class="hero-editorial-title" data-i18n="hero_title">CATCH THE WAVE</h1>
+      <h1 class="hero-editorial-title" data-i18n="hero_title">VIVA ESSA ONDA</h1>
 
       <!-- Frase Editorial de Suporte -->
       <p class="hero-editorial-sub" data-i18n="hero_subtitle">
@@ -2569,7 +2596,7 @@
       <div class="footer-grid">
         <div class="footer-brand-col">
           <div class="footer-logo-row">
-            <img src="./surf/logo.png" alt="Escola de Surf Evandro Santos" class="brand-logo-img" width="38" height="38" onerror="this.src='./surf/logo.jpg'">
+            <img src="./surf/logo-transparent.png" alt="Escola de Surf Evandro Santos" class="brand-logo-img" width="56" height="56" onerror="this.onerror=null;this.src='./surf/logo.jpg'">
             <div class="footer-brand-title">
               Evandro Santos
               <span data-i18n="brand_tag">Surf Camp Floripa</span>
@@ -2657,6 +2684,15 @@
     // Inicialização dos Ícones Lucide
     lucide.createIcons();
 
+    // Header: transparente sobre o mar, véu sutil ao rolar
+    (function() {
+      const headerBar = document.getElementById('header-bar');
+      if (!headerBar) return;
+      const onScroll = () => headerBar.classList.toggle('scrolled', window.scrollY > 60);
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+
     // ==========================================================================
     // 1. DICIONÁRIO MULTILÍNGUE COMPLETO (PT / ES / EN)
     // ==========================================================================
@@ -2678,7 +2714,7 @@
         drawer_footer_note: "Atendimento presencial com hora marcada • Barra da Lagoa, SC",
         hero_follow_us: "SIGA-NOS",
         hero_kicker: "FLORIANÓPOLIS • BARRA DA LAGOA",
-        hero_title: "CATCH THE WAVE",
+        hero_title: "VIVA ESSA ONDA",
         hero_subtitle: "Aprenda com quem vive o mar há mais de 40 anos.",
         hero_cta_book: "Agendar Horário",
         hero_cta_discover: "Discover",
@@ -2797,7 +2833,7 @@
         drawer_footer_note: "Atención presencial con cita previa • Barra da Lagoa, SC",
         hero_follow_us: "SÍGUENOS",
         hero_kicker: "FLORIANÓPOLIS • BARRA DA LAGOA",
-        hero_title: "CATCH THE WAVE",
+        hero_title: "VIVE ESTA OLA",
         hero_subtitle: "Aprende con quien vive el mar hace más de 40 años.",
         hero_cta_book: "Reservar Horario",
         hero_cta_discover: "Descubrir",
@@ -2916,7 +2952,7 @@
         drawer_footer_note: "In-person coaching strictly by appointment • Barra da Lagoa, SC",
         hero_follow_us: "FOLLOW US",
         hero_kicker: "FLORIANÓPOLIS • BARRA DA LAGOA",
-        hero_title: "CATCH THE WAVE",
+        hero_title: "RIDE THIS WAVE",
         hero_subtitle: "Learn from someone who has lived the ocean for over 40 years.",
         hero_cta_book: "Book Lesson",
         hero_cta_discover: "Discover",
